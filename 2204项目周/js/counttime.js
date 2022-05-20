@@ -7,18 +7,18 @@ showtime();
     var secondSpan = document.getElementById("second");
 
     var dateStart = new Date();
-    console.log(dateStart);
-    var dateEnd = new Date("2022-3-2,0:0:0");
-    console.log(dateEnd);
+    // console.log(dateStart);
+    var dateEnd = new Date("2022-6-18,0:0:0");
+    // console.log(dateEnd);
     var time = parseInt((dateEnd.getTime() - dateStart.getTime()) / 1000); //间隔时间;
-    console.log(time);
+    // console.log(time);
     
 
     var hours = parseInt((time / 60 / 60) % 24);
 
     var minutes = parseInt((time / 60) % 60);
     var seconds = parseInt(time % 60);
-    console.log( hours, minutes, seconds);
+    // console.log( hours, minutes, seconds);
     
 
     hourSpan.innerText = beauty(hours) + "时";

@@ -3,6 +3,7 @@
   width: 1200px;
   margin: 0 auto;
 }
+
 .container .carousel {
   width: 1200px;
   height: 481px;
@@ -10,11 +11,13 @@
   display: flex;
   justify-content: space-between;
 }
+
 .container .carousel .carousel_nav {
   width: 230px;
   height: 480px;
   background-color: #fff;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar {
   width: 100%;
   height: 100%;
@@ -22,14 +25,17 @@
   margin-top: 10px;
   position: relative;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li {
   text-align: center;
   line-height: 34px;
   font-size: 12px;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li > a {
   font-size: 12px;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li .subNav {
   width: 800px;
   height: 480px;
@@ -41,22 +47,27 @@
   border: 1px solid #cccccc;
   z-index: 2;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li .subNav .subNavLi {
   width: 630px;
   height: 100%;
   background-color: #fff;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li .subNav .subNavLi .li1 {
   display: flex;
   flex-wrap: wrap;
   margin-left: 15px;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li .subNav .subNavLi .li1 li {
   margin-top: 5px;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li .subNav .subNavLi .li1 .bold {
   font-weight: bold;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li .subNav .subNavLi .li1 .liClub {
   height: 40px;
   margin-top: 15px;
@@ -64,26 +75,32 @@
   background-color: black;
   border-radius: 10px;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li .subNav .subNavLi .li1 .liClub > a {
   line-height: 40px;
   color: #fff;
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li:hover {
   background-color: #d1cfcf;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li:hover .subNav {
   display: block;
 }
+
 .container .carousel .carousel_nav .carousel_nav_bar > li:hover a:hover {
   color: red;
 }
+
 .container .carousel .carousel_img {
   width: 720px;
   height: 480px;
   position: relative;
 }
+
 .container .carousel .carousel_img .tabNav {
   overflow: hidden;
   /* 定位脱离文档流  宽高靠内容撑开 */
@@ -92,6 +109,7 @@
   bottom: 104px;
   background: grey;
 }
+
 .container .carousel .carousel_img .tabNav a {
   width: 86px;
   height: 5px;
@@ -101,21 +119,26 @@
   float: left;
   margin-right: 1px;
 }
+
 .container .carousel .carousel_img .tabNav a :hover {
   background: #6ff;
   color: #fff;
 }
+
 .container .carousel .carousel_img .tabNav .active {
   background: #f0725c;
   color: #fff;
 }
+
 .container .carousel .carousel_img .tabList {
   height: 380px;
   overflow: hidden;
 }
+
 .container .carousel .carousel_img .tabList .show {
   display: block;
 }
+
 .container .carousel .carousel_img .tabList li {
   height: 375px;
   border: 1px solid #333;
@@ -123,40 +146,48 @@
   line-height: 398px;
   display: none;
 }
+
 .container .carousel .carousel_img .tabList li img {
   width: 720px;
   height: 370px;
 }
+
 .container .carousel .carousel_img .carousel_adv {
   display: flex;
 }
+
 .container .carousel .carousel_log {
   width: 240px;
   height: 480px;
   background-color: white;
   position: relative;
 }
+
 .container .carousel .carousel_log .carousel_log_rl {
   width: 240px;
   height: 152px;
   display: flex;
   flex-direction: column;
 }
+
 .container .carousel .carousel_log .carousel_log_rl .carousel_log_rl_img {
   width: 100px;
   height: 400px;
   margin: 0 auto;
   background-image: url("https://misc.360buyimg.com/mtd/pc/common/img/no_login.jpg");
 }
+
 .container .carousel .carousel_log .carousel_log_rl .carousel_log_rl_lr {
   height: 210px;
   display: flex;
   justify-content: center;
   font-size: 12px;
 }
+
 .container .carousel .carousel_log .carousel_log_rl .carousel_log_rl_lr div {
   margin-left: 10px;
 }
+
 .container .carousel .carousel_log .carousel_log_rl .carousel_log_rl_fl {
   height: 108px;
   display: flex;
@@ -164,6 +195,7 @@
   align-items: center;
   margin-bottom: 15px;
 }
+
 .container .carousel .carousel_log .carousel_log_rl .carousel_log_rl_fl .fl,
 .container .carousel .carousel_log .carousel_log_rl .carousel_log_rl_fl .hy {
   width: 100px;
@@ -171,52 +203,63 @@
   border: none;
   border-radius: 50px;
 }
+
 .container .carousel .carousel_log .carousel_log_ser {
   width: 200px;
   height: 210px;
   margin: 0 auto;
   border-top: 1px solid gray;
 }
+
 .container .carousel .carousel_log .carousel_log_ser .carousel_log_ser_nav {
   display: flex;
   justify-content: space-around;
 }
+
 .container .carousel .carousel_log .carousel_log_ser .carousel_log_ser_nav a {
   font-size: 12px;
 }
+
 .container .carousel .carousel_log .carousel_log_ser .carousel_log_ser_con {
   width: 100%;
   margin: o auto;
 }
+
 .container .carousel .carousel_log .carousel_log_ser .carousel_log_ser_con .links {
   width: 180px;
   display: flex;
   flex-wrap: wrap;
   margin: 20px auto;
 }
+
 .container .carousel .carousel_log .carousel_log_ser .carousel_log_ser_con .links li {
   margin-left: 20px;
   font-size: 13px;
 }
+
 .container .carousel .carousel_log .carousel_log_ser .carousel_log_ser_con .payWay {
   width: 180px;
   margin: 20px auto;
 }
+
 .container .carousel .carousel_log .carousel_log_infor {
   border-top: 1px solid gray;
   width: 200px;
   font-size: 12px;
   margin: 0 auto;
 }
+
 .container .carousel .carousel_log .carousel_log_infor .carousel_log_infor_nav {
   display: flex;
   justify-content: space-between;
 }
+
 .container .carousel .carousel_log .carousel_log_infor .carousel_log_infor_detail {
   margin-top: 15px;
   display: flex;
   flex-direction: column;
 }
+
 .container .countdownNav {
   width: 100%;
   height: 266px;
@@ -224,6 +267,7 @@
   background-color: #fff;
   display: flex;
 }
+
 .container .countdownNav .countdown {
   width: 200px;
   height: 100%;
@@ -231,6 +275,7 @@
   text-align: center;
   color: #fff;
 }
+
 .container .countdownNav .countdown .countdown-title {
   height: 40px;
   line-height: 40px;
@@ -239,23 +284,28 @@
   box-sizing: border-box;
   padding-top: 10px;
 }
+
 .container .countdownNav .countdown .countdown-titleEng {
   margin-top: 20px;
 }
+
 .container .countdownNav .countdown .countdown-flash {
   margin-top: 20px;
   height: 50px;
 }
+
 .container .countdownNav .countdown .countdown-msg {
   margin-top: 15px;
   font-size: 14px;
 }
+
 .container .countdownNav .countdown .countdown-time {
   width: 126px;
   height: 35px;
   margin: 0 auto;
   display: flex;
 }
+
 .container .countdownNav .countdown .countdown-time span {
   display: block;
   margin-left: 2px;
@@ -264,22 +314,26 @@
   line-height: 35px;
   background-color: #333;
 }
+
 .container .countdownNav .countdown_GL {
   width: 1000px;
   height: 266px;
   display: flex;
   overflow: hidden;
 }
+
 .container .countdownNav .countdown_GL > li {
   width: 200px;
   height: 266px;
   padding: 40px;
   box-sizing: border-box;
 }
+
 .container .countdownNav .countdown_GL > li img {
   width: 150px;
   height: 150px;
 }
+
 .container .countdownNav .countdown_GL > li > .title {
   font-size: 14px;
   display: -webkit-box;
@@ -288,11 +342,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .container .countdownNav .countdown_GL > li > .price {
   margin-top: 5px;
   font-size: 14px;
   display: flex;
 }
+
 .container .navMsg {
   width: 100%;
   height: 380px;
@@ -301,15 +357,18 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 .container .navMsg a {
   width: 290px;
   height: 180px;
   margin-top: 10px;
 }
+
 .container .navMsg a img {
   width: 100%;
   height: 100%;
 }
+
 .container .recommend {
   width: 100%;
   font-size: 40px;
@@ -317,6 +376,7 @@
   text-align: center;
   margin-top: 20px;
 }
+
 .container .recommend_img {
   width: 100%;
   height: 1580px;
@@ -325,6 +385,7 @@
   flex-wrap: wrap;
   margin-top: 20px;
 }
+
 .container .recommend_img > li {
   width: 230px;
   height: 300px;
@@ -332,10 +393,12 @@
   box-sizing: border-box;
   background-color: #fff;
 }
+
 .container .recommend_img > li img {
   width: 160px;
   height: 160px;
 }
+
 .container .recommend_img > li > .title1 {
   font-size: 14px;
   display: -webkit-box;
@@ -344,10 +407,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .container .recommend_img > li > .price1 {
   margin-top: 5px;
   font-size: 14px;
   display: flex;
 }
-
-/*# sourceMappingURL=index_container.css.map */

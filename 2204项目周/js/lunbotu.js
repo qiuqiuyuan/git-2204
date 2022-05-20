@@ -7,7 +7,7 @@
     var timer = null;
 
     autoPlay();
-    autoPlay();
+    // autoPlay();
      
     for(var i=0;i<aList.length;i++){
         var a = aList[i];
@@ -29,12 +29,12 @@
         }
     }
 
-    tabBar.onmouseover = function(){
-        console.log("鼠标移入");
+    tabBar.onmousemove = function(){
+        // console.log("鼠标移入");
         clearInterval(timer);
     }
     tabBar.onmouseout = function(){
-        console.log("鼠标移出");
+        // console.log("鼠标移出");
         autoPlay();
     }
 

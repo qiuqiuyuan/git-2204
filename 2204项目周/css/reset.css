@@ -1,0 +1,55 @@
+/* 浏览器默认边距 */
+html,body,h1,h2,h3,h4,h5,p,h6,dl,dt,dd,ul,ol,li,p,img,input,button,fieldset,legend,br,hr,table,tr,td,form{
+    padding: 0;
+    margin: 0;
+}
+/* li标签清符号 */
+ul,
+li {
+list-style: none;
+}
+/* 图片清3像素问题 */
+img {
+vertical-align: top;
+}
+/* a标签清下划线 */
+a {
+color:inherit;
+text-decoration: none;
+}
+/* 万能清除法 */
+.clear::after {
+ content: ".";
+ /* 清除浮动对伪元素的影响，从而撑大父元素 */
+ display: block;
+ clear: both;
+ /* 让内容不可见 */
+ height: 0;
+ visibility: hidden;
+ overflow: hidden;
+}
+/* 左右浮动 */
+.fl{
+float: left;
+}
+.fr{
+float: right;
+}
+/* 设置版心 宽度居中 具体宽度记得按实际改*/
+.w{
+    width: 990px;
+    margin: 0px auto;
+}
+/* 取消聚焦效果 */
+input{
+    outline: none;
+}
+/* 取消文本域拉伸 */
+textarea{
+   resize: none;
+}
+/* 默认字体 */
+body{ 
+    position: relative;
+    font: 16px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script src="../js/cookie.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		h3 {
+			display: none;
+		}
+
+		.cover {
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: none;
+		}
+
+		.content {
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+			width: 200px;
+			height: 200px;
+			padding: 30px;
+			background-color: white;
+		}
+	</style>
+	<body>
+		<h3 class="noLogin">
+			<a href="./07.log.html">登录</a>
+			<a href="./06.reg.html">注册</a>
+		</h3>
+
+		<h3 class="login">xx</h3>
+
+		<h4 class="loginOut">退出账号</h4>
+
+
+
+		<table>
+
+			<thead>
+				<tr>
+					<td>序号</td>
+					<td>账号</td>
+					<td>密码</td>
+					<td>手机号</td>
+					<td>邮箱</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr>
+		                <td>1</td>
+		                <td>zz</td>
+		                <td>123</td>
+		                <td>
+		                    <button class="del">删除</button>
+		                    <button class="changePwd">修改密码</button>
+		                </td>
+		            </tr> -->
+			</tbody>
+
+		</table>
+
+
+		<div class="cover">
+			<div class="content">
+				<h4>修改密码</h4>
+				用户名；<input type="text" class="username" disabled>
+				<br>
+				密码：<input type="password" class="newpwd">
+				<br> <br>
+				<button class="confirm" onclick="btnConfirm()">确定</button>
+				<button class="cancel" onclick="btnCancel()">取消</button>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		const oNoLogin = document.querySelector(".noLogin");
+		const oLogin = document.querySelector(".login");
+		const oLoginOut = document.querySelector(".loginOut");
+		const res = getCookie("lgc");
+		const oTbody = document.querySelector('tbody');
+		
+		
+		const oCover =document.querySelector(".cover")
+		const oUser=document.querySelector(".username");
+		const oPwd=document.querySelector(".newpwd");
+		const oConfirm=document.querySelector(".confirm");
+		const oCancel=document.querySelector(".cancel");
+		// console.log(res);
+		if (res) {
+			oLogin.style.display = "block";
+			oLogin.innerHTML = res;
+		} else {
+			oNoLogin.style.display = "block";
+oLoginOut.style.display = "none";
+		}
+		oLoginOut.onclick = function() {
+			deleteCookie("lgc");
+			location.href = '07.log.html';
+			oLoginOut.style.display = "none";
+		}
+		//列表封装
+		setList();
+
+		function setList() {
+			const xhr = new XMLHttpRequest();
+			xhr.open('get', '../php/list.php', true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					const data = JSON.parse(xhr.responseText);
+					console.log(data);
+					const {
+						status: status,
+						list: list
+					} = data;
+					console.log(list);
+					let html = '';
+					if (status) {
+						list.forEach(v => {
+							html += `
+							              <tr>
+							                  <td>${v.id}</td>
+							                  <td>${v.user}</td>
+							                  <td>${v.pwd}</td>
+							                  <td>${v.phone}</td>
+							                  <td>${v.email}</td>
+							                  <td>
+							                      <button class="del" onclick="del('${v.id}' , this)">删除</button>
+							                      <button class="changePwd" onclick="changePwd('${v.user}', this)">修改密码</button>
+							                  </td>
+							              </tr>
+							          `
+						})
+						oTbody.innerHTML = html;
+					}
+				}
+			}
+		}
+
+		function del(id, obj) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('get', `../php/delete.php?id=${id}`, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					const data = JSON.parse(xhr.responseText);
+					console.log(data);
+					const{status:status}=data;
+					if(status){
+						setList();
+					}
+				}
+			}
+		}
+		
+		const newpwd=oPwd.value.trim();
+		function changePwd(user,obj){
+			oCover.style.display="block";
+			oUser.value=user;
+		}
+		
+		function btnCancel(){
+			oCover.style.display='none';
+		}
+	
+		function btnConfirm(){
+			const newpwd=oPwd.value.trim();
+			const username=oUser.value;
+			console.log(username,newpwd);
+			const xhr = new XMLHttpRequest();
+			xhr.open('get', `../php/update.php?user=${username}&newpwd=${newpwd}`, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					const data = JSON.parse(xhr.responseText);
+					console.log(data);
+					const {status:status}=data;
+					if(status){
+						
+						setList();
+						oPwd.value='';
+						oCover.style.display = 'none' ;
+					}
+				}
+			}
+			
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/ajax.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+
+const p1=new Promise(resolve=>{
+    ajax({
+        type:'get',
+        url:'../data/1.php',
+        success:res=>{
+            resolve(res);
+        }
+    })
+})
+const p2=new Promise(resolve=>{
+    ajax({
+        type:'get',
+        url:'../data/2.php',
+        success:res=>{
+            resolve(res);
+        }
+    })
+})
+const p3=new Promise(resolve=>{
+    ajax({
+        type:'get',
+        url:'../data/3.php',
+        success:res=>{
+            resolve(res);
+        }
+    })
+})
+
+const  p =Promise.all([p1,p2,p3]);
+
+console.log(p);
+
+p.then(res=>{
+    console.log(res);
+});
+
+
+
+const  pp1=new Promise((resolve,reject)=>{
+    setTimeout(() => {
+   const n=Math.round(Math.random()*100);
+   if (n%2==0) {
+       resolve('第一次成功'+n)
+   }else{
+       reject('第一次失败'+n)
+   }
+    });
+})
+const  pp2=new Promise((resolve,reject)=>{
+    setTimeout(() => {
+   const n=Math.round(Math.random()*100);
+   if (n%2==0) {
+       resolve('第二次成功'+n)
+   }else{
+       reject('第二次失败'+n)
+   }
+    });
+})
+const  pp3=new Promise((resolve,reject)=>{
+    setTimeout(() => {
+   const n=Math.round(Math.random()*100);
+   if (n%2==0) {
+       resolve('第三次成功'+n)
+   }else{
+       reject('第三次失败'+n)
+   }
+    });
+})
+
+const pp=Promise.all([pp1,pp2,pp3]);
+console.log(pp);
+
+pp.then(res=>{
+    console.log(res);
+})
+</script>
+</html>

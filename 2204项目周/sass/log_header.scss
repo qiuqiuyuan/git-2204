@@ -1,0 +1,51 @@
+.header{
+    width: 100%;
+    height: 110px;
+    background-color: #fff;
+    // box-shadow: 10px 10px 5px #dddbdb;
+
+    .w {
+      width: 1210px;
+      margin: 0 auto;
+
+      .logo {
+        width: 160px;
+        height: 50px;
+        float: left;
+        margin-top: 24px;
+      }
+
+      .logo_title {
+        float: left;
+        height: 34px;
+        line-height: 34px;
+        font-size: 27px;
+        color: #333;
+        margin-top: 47px;
+        margin-left: 10px;
+      }
+
+      .questionnaire{
+        font-size: 16px;
+      float: right;
+      margin-top: 80px;
+      color: #999;
+
+      a{
+        color: red;
+       } 
+      }
+    }
+
+   
+}
+
+.lawyer_infor{
+    background-color: beige;
+    text-align: center;
+    color: rgb(104, 103, 103);
+    font-size: 12px;
+}
+
+
+

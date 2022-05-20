@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/ajax.js"></script>
+</head>
+<body>
+    
+</body>
+
+<script>
+function request(type,url,data){
+
+    const p=new Promise((resolve,reject)=>{
+        ajax({
+            type,
+            url,
+            data,
+            success:res=>{
+                resolve(res);
+            }
+        })
+    })
+    return p;
+}
+
+
+//  function reg(data){
+//      const p=request('post','../php/reg.php',data);
+//      return p;
+//  }
+
+//  p.then(
+//      res=>{
+//      console.log(res);
+//  })
+
+const reg=data=>request('post','../php/reg.php',data);
+</script>
+</html>

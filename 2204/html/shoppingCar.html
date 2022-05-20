@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>原生JS实现购物车结算功能代码</title>
+		<link rel="stylesheet" href="../css/style.css" />
+		<script src="../js/ajax.js"></script>
+		<script src="../js/cookie.js"></script>
+	</head>
+
+	<body>
+		<div class="catbox">
+			<table id="cartTable">
+				<thead>
+					<tr>
+						<th><label>
+								<input class="check-all check" type="checkbox" />&nbsp;&nbsp;全选</label></th>
+						<th>商品</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th>小计</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- <tr>
+                    <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
+                    <td class="goods"><img src="../images/1.jpg" alt="" /><span>Casio/卡西欧 EX-TR350</span></td>
+                    <td class="price">5999.88</td>
+                    <td class="count"><span class="reduce"></span>
+                        <input class="count-input" type="text" value="1" />
+                        <span class="add">+</span>
+                    </td>
+                    <td class="subtotal">5999.88</td>
+                    <td class="operation"><span class="delete">删除</span></td>
+                </tr>
+                <tr>
+                    <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
+                    <td class="goods"><img src="../images/2.jpg" alt="" /><span>Canon/佳能 PowerShot SX50 HS</span></td>
+                    <td class="price">3888.50</td>
+                    <td class="count"><span class="reduce"></span>
+                        <input class="count-input" type="text" value="1" />
+                        <span class="add">+</span>
+                    </td>
+                    <td class="subtotal">3888.50</td>
+                    <td class="operation"><span class="delete">删除</span></td>
+                </tr>
+                <tr>
+                    <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
+                    <td class="goods"><img src="../images/3.jpg" alt="" /><span>Sony/索尼 DSC-WX300</span></td>
+                    <td class="price">1428.50</td>
+                    <td class="count"><span class="reduce"></span>
+                        <input class="count-input" type="text" value="1" />
+                        <span class="add">+</span>
+                    </td>
+                    <td class="subtotal">1428.50</td>
+                    <td class="operation"><span class="delete">删除</span></td>
+                </tr>
+                <tr>
+                    <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
+                    <td class="goods"><img src="../images/4.jpg" alt="" /><span>Fujifilm/富士 instax mini 25</span></td>
+                    <td class="price">640.60</td>
+                    <td class="count"><span class="reduce"></span>
+                        <input class="count-input" type="text" value="1" />
+                        <span class="add">+</span>
+                    </td>
+                    <td class="subtotal">640.60</td>
+                    <td class="operation"><span class="delete">删除</span></td>
+                </tr> -->
+				</tbody>
+			</table>
+			<div class="foot" id="foot">
+
+				<a class="fl" id="deleteAll" href="javascript:;">删除</a>
+				<div class="fr closing" onclick="getTotal();">结 算</div>
+				<input type="hidden" id="cartTotalPrice" />
+				<div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+				<div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件<span
+						class="arrow up">︽</span><span class="arrow down">︾</span></div>
+				<div class="selected-view">
+					<div id="selectedViewList" class="clearfix">
+						<div><img src="../images/1.jpg"><span>取消选择</span></div>
+					</div>
+					<span class="arrow">◆<span>◆</span></span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		const user = getCookie('lgc');
+
+		setList();
+
+
+		function setList() {
+			if (user) {
+				ajax({
+					type: 'get',
+					url: '../php/showShoppingCar.php',
+					data: {
+						user: user,
+					},
+					success: res => {
+						let html = '';
+						const {
+							status,
+							msg,
+							list
+						} = res;
+						// console.log(list);
+						list.forEach(v => {
+							console.log(v);
+							html += `
+					
+					<tr>
+					    <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
+					    <td class="goods"><img src="${v.goodsImg}" alt="" /><span>${v.goodsName}</span></td>
+					    <td class="price">${v.goodsPrice}</td>
+					    <td class="count">
+						<span class="reduce">${v.buyNum >1?"-":""}</span>
+					        <input class="count-input" type="text" value="${v.buyNum}" />
+					        <span class="add">+</span>
+					    </td>
+					    <td class="subtotal">${(v.goodsPrice*v.buyNum).toFixed(2)}</td>
+					    <td class="operation"><span class="delete" onclick="del('${v.id}' , this)">删除</span></td>
+					</tr>
+					`
+
+							let oTbody = document.querySelector("tbody");
+							oTbody.innerHTML = html;
+
+						})
+					}
+				})
+			}
+		}
+		
+		function del(id,obj){
+			const xhr = new XMLHttpRequest();
+			xhr.open('get', `../php/delete.php?id=${id}`, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					const data = JSON.parse(xhr.responseText);
+					console.log(data);
+					const{status:status}=data;
+					if(status){
+						setList();
+					}
+				}
+			}
+		}
+		
+		
+	</script>
+
+</html>

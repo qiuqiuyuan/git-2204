@@ -1,0 +1,27 @@
+.footer{
+    height: 86px;
+    width: 100%;
+    border-top: solid 1px #e6e6e6;
+   padding-bottom: 30px;
+    position: absolute;
+    left: 0;
+    color: rgb(121, 120, 120);
+  
+
+   .footer_nav{
+    width: 950px;
+    margin:  0 auto;
+   }
+    .link,.copyright{
+        
+        font-size: 13px;
+        text-align: center;
+        margin-top: 15px;
+
+        a{
+       padding: 10px;
+        }
+    }
+   
+
+}

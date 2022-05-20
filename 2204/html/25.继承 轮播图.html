@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .banner {
+        width: 200px;
+        height: 300px;
+        margin: 40px auto;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .banner ul li {
+        width: 200px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        opacity: 0;
+        background-color: #ddd;
+        position: absolute;
+        top: 0;
+
+        transition: 0.3s;
+      }
+
+      span {
+        position: absolute;
+        z-index: 3;
+      }
+
+      ol {
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+      }
+
+      ol li {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #0f0;
+        margin: 10px;
+      }
+
+      span {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+      }
+
+      #next {
+        right: 0;
+      }
+
+      .show {
+        opacity: 1 !important;
+      }
+
+      .active {
+        background-color: #ff0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner" id="a">
+      <span id="prev">&lt;</span>
+      <span id="next">&gt;</span>
+      <ul id="ul">
+        <li class="show">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+      <ol>
+        <li class="dot active"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+      </ol>
+    </div>
+  </body>
+
+  <script>
+    //原生js
+    /*     const oBanner = document.querySelector(".banner");
+    const oPrev = document.querySelector("#prev");
+    const oNext = document.querySelector("#next");
+    const oUlLis = document.querySelectorAll("ul li");
+    const oDots = document.querySelectorAll("ol li");
+    let index = 0;
+    let t;
+    autoPlay();
+    function autoPlay() {
+      t = setInterval(() => {
+        index++;
+        if (index === oUlLis.length) {
+          index = 0;
+        }
+        showOne();
+      }, 1000);
+    }
+
+    function showOne() {
+      oUlLis.forEach((v, i) => {
+        v.classList.remove("show");
+        oDots[i].classList.remove("active");
+      });
+      oUlLis[index].classList.add("show");
+      oDots[index].classList.add("active");
+    }
+    oBanner.onmousemove = function () {
+      clearInterval(t);
+    };
+    oBanner.onmouseout = function () {
+      autoPlay();
+    };
+    oPrev.onclick = function () {
+      clearInterval(t);
+      index--;
+      if (index === -1) {
+        index = oUlLis.length - 1;
+      }
+      showOne();
+    };
+    oNext.onclick = function () {
+      clearInterval(t);
+      index++;
+      if (index === oUlLis.length) {
+        index = 0;
+      }
+      showOne();
+    };
+
+    oDots.forEach((v, i) => {
+      v.onclick = function () {
+        index = i;
+        showOne();
+      };
+    }); */
+
+    //面向对象
+    function Banner(ele) {
+       this.oBanner = document.querySelector(ele);
+       this.oPrev = this.oBanner.querySelector('#prev');
+       this.oNext = this.oBanner.querySelector('#next');
+       this.oUlLis = this.oBanner.querySelectorAll("ul li");
+       this.oDots = this.oBanner.querySelectorAll("ol li");
+       this.index = 0;
+       this.t;
+       this.autoPlay();
+       this.showOne();
+       this.init();
+    //    this.onmousemove();
+    }
+ 
+
+    Banner.prototype.init=function(){
+        this.oDots.forEach((v,i)=>{
+            v.index=i;
+          
+        });
+
+
+        this.oBanner.onclick=(e)=>{
+            e=e||event;
+            if(e.target.id==='prev'){
+                clearInterval(this.t);
+                this.index--;
+                if(this.index===-1){
+                    this.index=this.oUlLis.length-1;
+                }
+                this.showOne();
+                return;
+            }
+
+            if(e.target.id==='next'){
+                clearInterval(this.t);
+                this.index++;
+                if(this.index===oUlLis.length){
+                    this.index=0;
+                }
+                this.showOne();
+                return;
+            }
+
+            if(e.target.className==='dot'){
+                clearInterval(this.t);
+                this.index=e.target.index;
+                this.showOne();
+                return;
+            }
+        }
+    }
+    Banner.prototype.autoPlay=function(){
+        this.t = setInterval(() => {
+        this.index++;
+        if (this.index === this.oUlLis.length) {
+          this.index = 0;
+        }
+        this.showOne();
+      }, 1000);
+    }
+    Banner.prototype.showOne=function(){
+        this.oUlLis.forEach((v, i) => {
+        v.classList.remove("show");
+        this.oDots[i].classList.remove("active");
+      });
+      this.oUlLis[this.index].classList.add("show");
+      this.oDots[this.index].classList.add("active");
+    }
+    const p=new Banner('#a');
+
+
+    
+  </script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    //acync 修饰符 
+
+    //需要定义在函数的前面 async 会把函数变为异步  函数内部是同步(使用await);
+    //async 默认返回了promise实例 且把函数的返回值作为新的promise实例的成功的值
+    //修饰符 new  正则中的i,g
+
+    async function fn(){
+        await console.log(6);
+        return 100;
+    }
+    //  function fn(){
+    //      console.log(6);
+    //     return 100;
+    // }
+    console.log(fn());
+    // async function foo(){
+    //     await fn();
+    // }
+    // foo();
+</script>
+</html>

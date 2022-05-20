@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/api.js"></script>
+  </head>
+  <body>
+    <input type="text" class="a" />
+    <br />
+    <input type="text" class="b" />
+    <br />
+    <input type="text" class="c" />
+    <br />
+    <input type="text" class="d" />
+    <br />
+    <button class="btn"></button>
+  </body>
+
+  <script>
+    /*   function f1(){
+
+       return new Promise((resolve,reject)=>{
+           setTimeout(() => {
+               resolve(1);
+           }, 1000);
+       })
+   }
+   function f2(){
+
+       return new Promise((resolve,reject)=>{
+           setTimeout(() => {
+               resolve(2);
+           }, 2000);
+       })
+   }
+   function f3(){
+
+       return new Promise((resolve,reject)=>{
+           setTimeout(() => {
+               resolve(3);
+           }, 3000);
+       })
+   }
+
+// async function fn(){
+//     let a=await f1();
+//     let b=await f2();
+//     let c=await f3();
+
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+
+// fn();
+
+ function ff(){
+    let arr=[f1,f2,f3];
+    arr.forEach( async v=>{
+        let res=await v();
+        console.log(res);
+    })
+}
+
+ff(); */
+
+    //注册
+    const oUser = document.querySelector(".a");
+    const oPwd = document.querySelector(".b");
+    const oPhone = document.querySelector(".c");
+    const oEmail = document.querySelector(".d");
+    const oBtn = document.querySelector(".btn");
+
+    oBtn.onclick = async function () {
+      const user = oUser.value.trim();
+      const pwd = oPwd.value.trim();
+      const phone = oPhone.value.trim();
+      const email = oEmail.value.trim();
+      if (user && pwd && phone && email) {
+        await reg({ user, pwd, phone, email }).then((res) => {
+          const { status, msg } = res;
+          if (status) {
+            alert("注册成功");
+          }
+          // console.log(res);
+        });
+      }
+    };
+  </script>
+</html>

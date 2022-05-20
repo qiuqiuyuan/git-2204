@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+//this 指向问题 默认情况下指向window
+//事件处理函数中 this 指向绑定事件的对象
+// 对象中 this指向对象本身 
+//  严格模式 this指向 undefined
+//箭头函数 跟随父元素 没有明确指向
+
+
+
+//函数直接属于谁 就指向谁   
+// 对象中的函数嵌套尽量把持箭头函数 保证指向问题
+
+
+//this指向的改变 
+
+//call  第一个参数表示新的this指向 后面的参数都是给函数的实参
+//apply第一个参数表示新的this指向 后面的参数都是给函数的实参(以数组形式传参)
+//bind   第一个参数表示新的this指向 并不调用函数 只返回此函数 bind()();
+
+const obj1={
+    name:'cc',
+    say:function(){//不能改箭头函数
+        console.log(this.name);
+    }
+}
+const obj2={
+    name:'yy',
+    say:function(){//不能改箭头函数
+        console.log(this.name);
+    }
+}
+obj1.say();
+
+obj1.say.call(obj2);//调用函数的时候调用call 改变原本的this指向
+
+
+
+//slice() 没写参数的时候 将所有参数裁切出来
+
+</script>
+</html>

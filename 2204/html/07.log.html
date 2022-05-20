@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			input {
+				margin-left: 10px;
+			}
+
+			#random_code {
+				width: 80px;
+				height: 30px;
+				background-color: #ddd;
+				margin-left: 10px;
+				text-align: center;
+				line-height: 30px;
+				letter-spacing: 2px;
+			}
+
+			#refresh {
+				margin-left: 10px;
+			}
+
+			.right {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>
+			<label for="user">用&ensp;户&ensp;名:</label>
+			<input id="user" name="user" type="text" />
+			<span id="user_span"></span>
+		</p>
+
+		<p>
+			<label for="pwd">密&emsp;&emsp;码:</label>
+			<input id="pwd" name="pwd" type="text" />
+			<span id="pwd_span"></span>
+		</p>
+
+		<button id="btn">登录</button>
+	</body>
+	<script>
+		var oUser = document.querySelector("#user");
+		var oUserSpan = document.querySelector("#user_span");
+		var oPwd = document.querySelector("#pwd");
+		var oPwdSpan = document.querySelector("#pwd_span");
+		var obtn = document.querySelector("#btn");
+
+
+
+
+		obtn.onclick = function() {
+			const user = oUser.value.trim();
+			const pwd = oPwd.value.trim();
+			let date = new Date();
+			date.setDate(date.getDate() + 1);
+			// console.log(isNickOk, isPwdOk, isUserOk, isCodeOk, isPhoneOk, isEmailOk);
+			// if (isNickOk & isPwdOk & isUserOk & isCodeOk&isPhoneOk&isEmailOk) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('post', '../php/login.php', true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send(`user=${user}&pwd=${pwd}`);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					let data = JSON.parse(xhr.responseText);
+					console.log(data);
+					const {status:status,msg:msg}=data;
+					
+					if(status===true){
+						
+						document.cookie = `lgc=${user}; expires=" +${date}+ ";path=/`;
+						oUserSpan.textContent=msg;
+						location.href='goodslist.html';
+					}else{
+						oUserSpan.textContent=msg;
+						
+					}
+				}
+			}
+			// }
+		};
+	</script>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <script src="../js/ajax.js"></script>
+  <script src="../js/cookie.js"></script>
+  <body>
+    <style>
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 1000px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      li {
+        width: 23%;
+        margin: 1%;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      img {
+        width: 100%;
+        height: 200px;
+      }
+    </style>
+  </body>
+
+  <h3 class="noLogin">
+    <a href="./07.log.html">登录</a>
+    <a href="./06.reg.html">注册</a>
+  </h3>
+
+  <h3 class="login">xx</h3>
+
+  <h4 class="loginOut">退出账号</h4>
+
+  <div class="search">
+    <input type="text" />
+    <button>搜索</button>
+  </div>
+
+  <div>
+    按照价格排序
+    <button class="asc">升序</button>
+    <button class="desc">降序</button>
+  </div>
+
+  <ul>
+    <!-- <li>
+	            <a href="">
+	                <img src="" alt="">
+	                <h3></h3>
+	                <p></p>
+	                <strong></strong>
+	            </a>
+	        </li> -->
+  </ul>
+
+  <script>
+    let kw = "";
+    let keyWord = document.querySelector(".search input");
+    let oBtn = document.querySelector(".search button");
+    const oAsc = document.querySelector(".asc");
+    const oDesc = document.querySelector(".desc");
+
+    const oNoLogin = document.querySelector(".noLogin");
+    const oLogin = document.querySelector(".login");
+    const oLoginOut = document.querySelector(".loginOut");
+    const res = getCookie("lgc");
+
+    if (res) {
+      oLogin.style.display = "block";
+      oLogin.innerHTML = res;
+      oNoLogin.style.display = "none";
+    } else {
+      oLoginOut.style.display = "none";
+    }
+    oLoginOut.onclick = function () {
+      deleteCookie("lgc");
+      location.href = "07.log.html";
+      oLoginOut.style.display = "none";
+    };
+    setList();
+
+    oAsc.addEventListener("click", function () {
+      ajax({
+        type: "get",
+        url: "../php/asc&desc.php",
+        data: { sort: "asc" },
+        success: (res) => {
+          const { status, msg, list } = res;
+          // console.log(list);
+
+          if (status) {
+            let html = "";
+            list.forEach((v) => {
+              const { goodsId, goodsName, goodsPrice, goodsImg, goodsDetail } =
+                v;
+              html += `
+							 <li>
+							    <a href="">
+							        <img src="${goodsImg}" alt="">
+							        <h3>"${goodsName}"</h3>
+							        <strong>￥"${goodsPrice}"</strong>
+							    </a>
+							</li> 
+							`;
+              const oUl = document.querySelector("ul");
+              oUl.innerHTML = html;
+            });
+          }
+        },
+      });
+    });
+
+    oDesc.addEventListener("click", function () {
+      ajax({
+        type: "get",
+        url: "../php/asc&desc.php",
+        data: { sort: "desc" },
+        success: (res) => {
+          const { status, msg, list } = res;
+          if (status) {
+            let html = "";
+            list.forEach((v) => {
+              const { goodsId, goodsName, goodsPrice, goodsImg, goodsDetail } =
+                v;
+              html += `
+							 <li>
+							    <a href="">
+							        <img src="${goodsImg}" alt="">
+							        <h3>"${goodsName}"</h3>
+							        <strong>"${goodsPrice}"</strong>
+							    </a>
+							</li> 
+							`;
+              const oUl = document.querySelector("ul");
+              oUl.innerHTML = html;
+            });
+          }
+        },
+      });
+    });
+
+    oBtn.onclick = function () {
+      kw = keyWord.value;
+      // console.log(kw);
+      setList();
+    };
+
+    function setList() {
+      ajax({
+        type: "get",
+        url: "../php/goodslist.php",
+        data: {
+          kw,
+        },
+        success: (res) => {
+          const { status, msg, list } = res;
+          // console.log(list);
+
+          if (status) {
+            let html = "";
+            list.forEach((v) => {
+              const { goodsId, goodsName, goodsPrice, goodsImg, goodsDetail } =
+                v;
+              html += `
+							 <li>
+							    <a href="./details.html?id=${goodsId}">
+							        <img src="${goodsImg}" alt="">
+							        <h3>"${goodsName}"</h3>
+							
+							        <strong>"${goodsPrice}"</strong>
+							    </a>
+							</li> 
+							`;
+              const oUl = document.querySelector("ul");
+              oUl.innerHTML = html;
+            });
+          }
+        },
+      });
+    }
+  </script>
+</html>

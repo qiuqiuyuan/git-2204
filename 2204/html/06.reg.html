@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			input {
+				margin-left: 10px;
+			}
+
+			#random_code {
+				width: 80px;
+				height: 30px;
+				background-color: #ddd;
+				margin-left: 10px;
+				text-align: center;
+				line-height: 30px;
+				letter-spacing: 2px;
+			}
+
+			#refresh {
+				margin-left: 10px;
+			}
+
+			.right {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- <p>用户要求：名字只能包含数字、字母，数字不可以开头，长度不低于6，不长于12 [0-9 a-z A-Z]</p> -->
+		<p>
+			<label for="user">用&ensp;户&ensp;名:</label>
+			<input id="user" name="user" type="text" />
+			<span id="user_span"></span>
+		</p>
+		<!-- <p>昵称：2-4位中文</p> -->
+		<p>
+			<label for="nickName">昵&emsp;&emsp;称:</label>
+			<input type="text" id="nickName" />
+			<span id="nick_span"></span>
+		</p>
+		<!-- <p>密码6-12位 不能包含特殊字符 (弱 z/1/A 中 包含两种 强 包含三种)</p> -->
+		<p>
+			<label for="pwd">密&emsp;&emsp;码:</label>
+			<input id="pwd" name="pwd" type="text" />
+			<span id="pwd_span"></span>
+		</p>
+		<!-- <p>确认密码 两次输入相同</p> -->
+		<p>
+			<label for="repwd">确认密码:</label>
+			<input id="repwd" name="repwd" type="text" />
+			<span id="repwd_span"></span>
+		</p>
+		<p>
+			<label for="phone">手&ensp;机&ensp;号:</label>
+			<input id="phone" name="phone" type="text" />
+			<span id="phone_span"></span>
+		</p>
+		<p>
+			<label for="email">电子邮箱:</label>
+			<input id="email" name="email" type="text" />
+			<span id="email_span"></span>
+		</p>
+		<!-- <p>随机4位验证码(点击切换验证码)</p> -->
+		<p>
+			<label for="code">验&ensp;证&ensp;码:</label>
+			<input id="code" name="code" type="text" />
+			<span id="random_code">1234</span>
+			<button id="refresh">刷新验证码</button>
+			<span id="code_span"></span>
+		</p>
+		<button id="btn">注册</button>
+	</body>
+	<script>
+		var numList = [];
+		for (var i = 48; i <= 57; i++) {
+			var char = String.fromCharCode(i);
+			numList.push(char);
+		}
+		console.log(numList);
+
+		var bigList = [];
+		for (var i = 65; i <= 90; i++) {
+			var char = String.fromCharCode(i);
+			bigList.push(char);
+		}
+		console.log(bigList);
+
+		var smallList = [];
+		for (var i = 97; i <= 122; i++) {
+			var char = String.fromCharCode(i);
+			smallList.push(char);
+		}
+		console.log(smallList);
+
+		var speList = ["_"]; // 允许使用的特殊字符
+
+		var normalList = numList.concat(bigList, smallList, speList);
+		console.log(normalList);
+
+		function randCode() {
+			//
+			var codeList = numList.concat(bigList, smallList);
+			var str = "";
+			for (var i = 0; i < 4; i++) {
+				var index = Math.floor(Math.random() * codeList.length);
+				var char = codeList[index];
+				if (str.indexOf(char) == -1) {
+					str += char;
+				} else {
+					i--;
+				}
+			}
+			return str; //  提升:数字 大写 小写 至少有一个
+		}
+		var oUser = document.querySelector("#user");
+		var oUserSpan = document.querySelector("#user_span");
+		var oNickName = document.querySelector("#nickName");
+		var oNickSpan = document.querySelector("#nick_span");
+		var oPwd = document.querySelector("#pwd");
+		var oPwdSpan = document.querySelector("#pwd_span");
+		var oRePwd = document.querySelector("#repwd");
+		var oRePwdSpan = document.querySelector("#repwd_span");
+		var oPhone = document.querySelector("#phone");
+		var oPhoneSpan = document.querySelector("#phone_span");
+		var oEmail = document.querySelector("#email");
+		var oEmailSpan = document.querySelector("#email_span");
+
+		var oCode = document.querySelector("#code");
+		var oCodeSpan = document.querySelector("#code_span");
+		var oRandCode = document.querySelector("#random_code");
+		var obtn = document.querySelector("#btn");
+		var reBtn = document.querySelector("#refresh");
+
+		var isUserOk = false;
+		var isNickOk = false;
+		var isPwdOk = false;
+		var isRepwdOk = false;
+		var isCodeOk = false;
+		var isPhoneOk = false;
+		var isEmailOk = false;
+
+		oUser.onblur = function() {
+			var user = oUser.value.trim();
+			isUserOk = false;
+			var reg = /^[A-Za-z_$][\w$]{5,11}$/;
+			if (reg.test(user)) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('get', `../php/isUserExist.php?username=${user}`, true);
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						// let data=JSON.parse(xhr.responseText);
+						let data = xhr.responseText;
+						data = JSON.parse(data);
+						console.log(data);
+						const {
+							status: status,
+							msg: msg
+						} = data;
+						console.log(status, msg);
+						if (status === true) {
+							oUserSpan.textContent = msg;
+							oUserSpan.className = "right";
+							isUserOk = true;
+							console.log(isUserOk);
+						} else {
+							oUserSpan.textContent = msg;
+							oUserSpan.className = "right";
+							isUserOk = false ;
+						}
+					}
+				}
+			} else {
+				oUserSpan.textContent = "用户名格式错误,不能以数字开头且长度为6-12字符";
+				oUserSpan.className = "right";
+			}
+		};
+		oNickName.onblur = function() {
+			isNickOk = false;
+			var nickName = oNickName.value.trim();
+			var reg = /[\u4e00-\u9fa5]{2,4}/;
+			if (reg.test(nickName)) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('get', `../php/isNickExist.php?nickname=${nickName}`, true);
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						// let data=JSON.parse(xhr.responseText);
+						let data = xhr.responseText;
+						data = JSON.parse(data);
+						console.log(data);
+						const {
+							status: status,
+							msg: msg
+						} = data;
+						console.log(status, msg);
+						if (status === true) {
+							isNickOk = true;
+							oNickSpan.textContent = msg;
+							oNickSpan.className = "right";
+						} else {
+							oNickSpan.textContent = msg;
+							oNickSpan.className = "right";
+							isNickOk = false;
+						}
+					}
+				}
+			} else {
+				oNickSpan.textContent = "别名格式错误 只能为中文且长度在2-4之间";
+				oNickSpan.className = "right";
+			}
+		};
+		oPwd.onblur = function() {
+			var pwd = oPwd.value.trim();
+			var reg = /^[\w$]{6,12}$/;
+			if (reg.test(pwd)) {
+				isPwdOk = true;
+				const isExistBig = /[A-Z]/.test(pwd);
+				const isExistSmall = /[a-z]/.test(pwd);
+				const isExistNum = /[0-9]/.test(pwd);
+				const isExistSpecial = /[_$]/.test(pwd);
+				const level = isExistBig + isExistSmall + isExistNum + isExistSpecial;
+				oPwdSpan.textContent = "密码强度" + level;
+				oPwdSpan.className = "right";
+			} else {
+				oPwdSpan.textContent = "密码由数字大小写及特殊字符组成,字符在6-20之间";
+				oPwdSpan.className = "right";
+			}
+		};
+		oRePwd.onblur = function() {
+			var rePwd = oRePwd.value.trim();
+
+			var pwd = oPwd.value.trim();
+
+			if (rePwd === pwd) {
+				isRepwdOk = true;
+				oRePwdSpan.textContent = "√";
+				oRePwdSpan.className = "right";
+			} else {
+				oRePwdSpan.textContent = "两次密码不一致 请重新输入";
+				oRePwdSpan.className = "right";
+			}
+		};
+		oPhone.onblur = function() {
+			var phone = oPhone.value.trim();
+			var reg = /^1[3-9]\d{9}$/;
+			if (reg.test(phone)) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('get', `../php/isPhoneExist.php?phone=${phone}`, true);
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						// let data=JSON.parse(xhr.responseText);
+						let data = xhr.responseText;
+						data = JSON.parse(data);
+						console.log(data);
+						const {
+							status: status,
+							msg: msg
+						} = data;
+						console.log(status, msg);
+						if (status === true) {
+							isPhoneOk = true;
+							oPhoneSpan.textContent = msg;
+							oPhoneSpan.className = "right";
+						} else {
+							oPhoneSpan.textContent = msg;
+							oPhoneSpan.className = "right";
+						}
+					}
+				}
+			} else {
+				oPhoneSpan.textContent = "请输入正确的手机号";
+				oPhoneSpan.className = "right";
+			}
+		}
+		oEmail.onblur = function() {
+			
+			isEmailOk = false;
+			var email = oEmail.value.trim();
+			var reg = /^\w+@\w+\.(com|cn|edu)$/;
+			if (reg.test(email)) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('get', `../php/isEmailExist.php?email=${email}`, true);
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						// let data=JSON.parse(xhr.responseText);
+						let data = xhr.responseText;
+						data = JSON.parse(data);
+						console.log(data);
+						const {
+							status,
+							msg
+						} = data;
+						if (status) {
+							oEmailSpan.textContent = msg;
+							oEmailSpan.className = "right";
+							isEmailOk = true;
+						} else {
+							oEmailSpan.textContent = msg;
+							oEmailSpan.className = "right";
+							isEmailOk = false;
+						}
+					}
+				}
+			} else {
+				oEmailSpan.textContent = "请输入正确的邮箱";
+				oEmailSpan.className = "right";
+			}
+		};
+		oRandCode.innerText = randCode();
+		reBtn.onclick = function() {
+			oRandCode.innerText = randCode();
+		};
+		oCode.onblur = function() {
+			const code = oCode.value.trim();
+			if (code) {
+				// 分别将用户输入的验证码  和 随机的验证码 转小写
+				if (code.toLowerCase() == oRandCode.innerText.toLowerCase()) {
+					isCodeOk = true;
+					oCodeSpan.innerText = "√";
+					oCodeSpan.className = "right";
+				} else {
+					oCodeSpan.innerText = "* 验证码不匹配";
+					oCodeSpan.className = "right";
+				}
+			} else {
+				oCodeSpan.innerText = "* 请输入验证码";
+				oCodeSpan.className = "right";
+			}
+		};
+		
+		let isRegOk=false;
+		obtn.onclick = function() {
+			const user = oUser.value.trim();
+			const nickName = oNickName.value.trim();
+			const pwd = oPwd.value.trim();
+			const phone = oPhone.value.trim();
+			const email = oEmail.value.trim();
+			// console.log(isUserOk)
+			console.log(isNickOk, isPwdOk, isUserOk, isCodeOk, isPhoneOk, isEmailOk);
+			if (isNickOk & isPwdOk & isUserOk & isCodeOk&isPhoneOk&isEmailOk) {
+				
+				if(isRegOk) return false;
+				isRegOk=true;
+			const xhr = new XMLHttpRequest();
+			xhr.open('post', '../php/reg.php', true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send(`user=${user}&nickname=${nickName}&pwd=${pwd}&email=${email}&phone=${phone}`);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					let data = JSON.parse(xhr.responseText);
+					console.log(data);
+					location.href='./07.log.html';
+				}
+			}
+			}
+		};
+	</script>
+</html>

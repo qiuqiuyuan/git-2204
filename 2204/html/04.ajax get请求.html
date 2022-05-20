@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+			<input type="text" name="username" id="user" value="" />
+			<br>
+			<input type="password" name="userpwd" id="pwd" value="" />
+			<br>
+			<button type="submit">登录</button>
+		
+		
+	</body>
+	<script type="text/javascript">
+		const oUser=document.querySelector("#user");
+		const oPwd=document.querySelector("#pwd");
+		const oBtn=document.querySelector("button");
+		
+		oBtn.onclick=function(){
+			const username=oUser.value;
+			const userpwd=oPwd.value;
+			
+			if(username&&userpwd){
+				const xhr=new XMLHttpRequest();
+				xhr.open('get','../php/get.php'+'?'+'aa=${username}&bb=${userpwd}',true);
+				xhr.send();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState===4&&xhr.status===200){
+						let data=JSON.parse(xhr.responseText);
+						// let data=xhr.responseText;
+						console.log(data);
+						
+						const {status:status}=data;
+						if(status===true){
+							alert('牛逼');
+						}
+					}
+				}
+			}
+		}
+	</script>
+</html>

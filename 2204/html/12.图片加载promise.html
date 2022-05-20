@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    // const oImg=document.createElement('img');
+    // oImg.src='https://img1.baidu.com/it/u=2428148699,553676979&fm=253&fmt=auto&app=138&f=JPEG?w=1080&h=422';
+    // document.body.appendChild(oImg);
+
+    const p=new Promise((resolve,reject)=>{
+        const oImg=document.createElement('img');
+    oImg.src='https://img1.baidu.com/it/u=2428148699,553676979&fm=253&fmt=auto&app=138&f=JPEG?w=1080&h=422';
+    
+    oImg.onload=()=>{
+        resolve(oImg);
+    };
+    oImg.onerror=()=>{
+        reject(oImg);
+    }
+    
+    
+    
+    })
+
+    p.then(
+        res=>{
+            document.body.appendChild(res);
+        },
+        err=>{
+
+            err.src='https://img0.baidu.com/it/u=580622870,2322220206&fm=253&fmt=auto&app=138&f=PNG?w=800&h=500';
+            document.body.appendChild(err);
+
+        }
+    );
+</script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/ajax.js"></script>
+  </head>
+  <style>
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    li {
+      width: 23%;
+      margin: 1%;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+    }
+
+    .page {
+      width: 1000px;
+      text-align: center;
+      margin: auto;
+      font-size: 50px;
+    }
+    .disabled {
+      color: #999;
+    }
+  </style>
+  <body>
+    <ul>
+      <!-- <li>
+	            <a href="">
+	                <img src="" alt="">
+	                <h3></h3>
+	                <p></p>
+	                <strong></strong>
+	            </a>
+	        </li> -->
+    </ul>
+
+    <div class="page">
+      <span class="prev disabled">&lt;</span>
+      <span class="next">&gt;</span>
+    </div>
+  </body>
+  <script>
+    let page = 1;
+    let size = 4;
+    let pageAll;
+
+    setPage();
+
+    const oNext = document.querySelector(".next");
+    const oPrev = document.querySelector(".prev");
+
+    oNext.onclick = function () {
+      if (this.classList.contains("disabled")) {
+        return;
+      }
+
+      page++;
+      setPage();
+      if (oPrev.classList.contains("disabled")) {
+        oPrev.classList.remove("disabled");
+      }
+
+      if (page == pageAll) {
+        this.classList.add("disabled");
+      }
+    };
+
+
+    oPrev.onclick=function(){
+        if (this.classList.contains("disabled")) {
+        return;
+      }
+
+page--;
+setPage();
+ 
+if(page==1){
+    this.classList.add('disabled');
+}
+
+
+
+
+
+    }
+
+    function setPage() {
+      ajax({
+        type: "get",
+        url: "../php/page.php",
+        data: {
+          page,
+          size,
+        },
+        success: (res) => {
+          const { status, msg, list, pageLen } = res;
+          // console.log(pageLen,list);
+
+          pageAll = Math.ceil(pageLen / size);
+          if (status) {
+            let html = "";
+            list.forEach((v) => {
+              const { goodsId, goodsName, goodsPrice, goodsImg, goodsDetail } =
+                v;
+              html += `
+							 <li>
+							    <a href="">
+							        <img src="${goodsImg}" alt="">
+							        <h3>"${goodsName}"</h3>
+							        <strong>￥"${goodsPrice}"</strong>
+							    </a>
+							</li> 
+							`;
+              const oUl = document.querySelector("ul");
+              oUl.innerHTML = html;
+            });
+          }
+        },
+      });
+    }
+  </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/api.js"></script>
+</head>
+<body>
+    <input type="text" class="a">
+    <br>
+    <input type="text" class="b">
+    <br>
+    <input type="text" class="c">
+    <br>
+    <input type="text" class="d">
+    <br>
+    <button class="btn"></button>
+</body>
+ 
+
+
+<script>
+const oUser=document.querySelector('.a');
+const oPwd=document.querySelector('.b');
+const oPhone=document.querySelector('.c');
+const oEmail=document.querySelector('.d');
+const oBtn=document.querySelector('.btn');
+
+
+
+oBtn.addEventListener('click',function(){
+const user=oUser.value.trim();
+const pwd=oPwd.value.trim();
+const phone=oPhone.value.trim();
+const email=oEmail.value.trim();
+
+if(user&&pwd&&phone&&email){
+    reg({user,pwd,phone,email}).then(
+    res=>{
+        // console.log(res);
+    
+    
+        const {status,msg}=res;
+    }
+)
+}
+
+
+
+
+
+
+})
+</script>
+</html>

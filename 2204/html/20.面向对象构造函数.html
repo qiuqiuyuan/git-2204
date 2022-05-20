@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tab p {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <button style="color: red">1</button>
+      <button>2</button>
+      <button>3</button>
+      <p style="display: block">1</p>
+      <p>2</p>
+      <p>3</p>
+    </div>
+
+    <div class="tab" id="a">
+      <button style="color: red">1</button>
+      <button>2</button>
+      <button>3</button>
+      <p style="display: block">1</p>
+      <p>2</p>
+      <p>3</p>
+    </div>
+  </body>
+
+  <script>
+    //构造函数 日期
+    /*  Date.prototype.formate = function () {
+      const y = this.getFullYear();
+      const m = this.getMonth() + 1;
+      const w = this.getDate();
+
+      const h=this.getHours();
+      const min=this.getMinutes();
+      const sec=this.getSeconds();
+
+      return `${y}-${m}-${w},${h}:${min}:${sec}`;
+    };
+
+    const dateTime=new Date();
+    console.log(dateTime.formate()); */
+
+    //构造函数 选项卡
+    // function tab() {
+    //   const oTab = document.querySelector(".tab");
+    //   const oBtns = document.querySelectorAll("button");
+    //   const oPs = document.querySelectorAll("p");
+
+    //   oBtns.forEach((v,i) => {
+    //     v.onclick = function() {
+    //       oBtns.forEach((v, i) => {
+    //         v.style.color = "black";
+    //         oPs[i].style.display = "none";
+    //       });
+    //       v.style.color = "red";
+    //       oPs[i].style.display = "block";
+    //     };
+    //   });
+    // }
+    // tab();
+
+    /*  function Tab(ele){
+
+            this.oTab = document.querySelector(ele);
+            this.oBtns = this.oTab.querySelectorAll('button') ;
+            this.oPs = this.oTab.querySelectorAll('p') ;
+
+
+        this.init();
+    }
+
+
+    Tab.prototype.init=function(){
+        this.oBtns.forEach((v,i) => {
+            v.onclick=()=>{
+                this.oBtns.forEach((v,i)=>{
+                    console.log(this);
+                    v.style.color='black';
+                    this.oPs[i].style.display='none';
+                })
+                v.style.color='red';
+                    this.oPs[i].style.display='block';
+            }
+        });
+    }
+
+
+
+    const tb=new Tab('.tab');
+
+    const t1=new Tab('#a');
+  */
+//es6对象选项卡
+    class Tab {
+      constructor(ele) {
+        this.oTab = document.querySelector(ele);
+        this.oBtns = this.oTab.querySelectorAll("button");
+        this.oPs = this.oTab.querySelectorAll("p");
+
+        this.int();
+      }
+
+      int() {
+        this.oBtns.forEach((v, i) => {
+          v.onclick = () => {
+            this.oBtns.forEach((v, i) => {
+              console.log(this);
+              v.style.color = "black";
+              this.oPs[i].style.display = "none";
+            });
+            v.style.color = "red";
+            this.oPs[i].style.display = "block";
+          };
+        });
+      }
+    }
+    const tb = new Tab(".tab");
+
+    const t1 = new Tab("#a");
+  </script>
+</html>

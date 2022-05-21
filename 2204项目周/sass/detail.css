@@ -1,0 +1,294 @@
+.header {
+  width: 100%;
+  height: 31px;
+  background-color: #dfdfdf;
+}
+
+.header .w {
+  width: 1200px;
+  height: 100%;
+  font-size: 13px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .w .nav {
+  display: flex;
+  height: 100%;
+  line-height: 20px;
+  float: left;
+}
+
+.header .w .nav > li:first-child > a:first-child {
+  border-right: none;
+}
+
+.header .w .nav > li:last-child > a:last-child {
+  border-right: none;
+}
+
+.header .w .nav > li {
+  line-height: 30px;
+  margin-left: 2px;
+  margin-right: 2px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.header .w .nav > li > a {
+  color: #969494;
+  box-sizing: border-box;
+  border-right: 1px solid #969494;
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index: 1;
+}
+
+.header .w .nav > li > a:hover {
+  color: red;
+}
+
+.header .w .nav > li > .subNav {
+  text-indent: 20px;
+  line-height: 30px;
+  font-size: 14px;
+  width: 100%;
+  background: #f9f9f9;
+  border: 1px solid grey;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  display: none;
+  z-index: 1;
+}
+
+.header .w .nav > li:hover {
+  background-color: #f9f9f9;
+}
+
+.header .w .nav > li:hover .subNav {
+  display: block;
+}
+
+.header .searchBar {
+  width: 1200px;
+  height: 140px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header .searchBar .log {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 270px;
+  height: 60px;
+  z-index: 2;
+}
+
+.header .searchBar .log img {
+  width: 134px;
+  height: 60px;
+}
+
+.header .searchBar .log > li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header .searchBar .log > li > a {
+  border: 1px solid grey;
+}
+
+.header .searchBar .log > li .subNav {
+  display: none;
+  width: 100px;
+  position: absolute;
+  top: 42px;
+  font-size: 14px;
+  color: #969494;
+  background-color: white;
+  border: 1px solid #dfdfdf;
+}
+
+.header .searchBar .log > li:hover .subNav {
+  display: block;
+}
+
+.header .searchBar .searchBarBox {
+  width: 700px;
+  height: 40px;
+  padding-top: 40px;
+  display: flex;
+  justify-content: end;
+  margin-left: 255px;
+}
+
+.header .searchBar .searchBarBox input {
+  width: 470px;
+  height: 35px;
+  border: 2px solid red;
+}
+
+.header .searchBar .searchBarBox .iconBox {
+  width: 51px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: red;
+}
+
+.header .searchBar .searchBarBox .iconBox a {
+  font-size: 36px;
+  line-height: 15px;
+  vertical-align: bottom;
+}
+
+.header .searchBar .searchBarBox .search_btn {
+  width: 55px;
+  height: 39px;
+  border: none;
+  padding-bottom: 2px;
+}
+
+.header .searchBar .searchBarBox :nth-child(2) {
+  background-color: red;
+  color: white;
+  border-bottom: 1px solid red;
+}
+
+.header .searchBar .searchBarBox :nth-child(3) {
+  background-color: black;
+  color: white;
+  border-bottom: 1px solid red;
+}
+
+.header .searchBar .hot_word {
+  width: 520px;
+  height: 20px;
+  margin-left: 28px;
+  font-size: 12px;
+  display: flex;
+  justify-content: end;
+}
+
+.header .searchBar .hot_word > a {
+  color: #969494;
+  padding-right: 15px;
+}
+
+.header .searchBar .key_word {
+  width: 550px;
+  height: 20px;
+  margin-top: 5px;
+  text-align: end;
+}
+
+.header .searchBar .key_word > a {
+  padding-left: 10px;
+}
+
+.showHeader {
+  margin-top: 128px;
+  width: 100%;
+  height: 150px;
+}
+
+.showHeader .showHeaderImg {
+  margin-left: 310px;
+}
+
+.showHeader .showHeaderImg img {
+  height: 110px;
+  width: 1240px;
+}
+
+.showHeader .showHeaderNav {
+  background-color: black;
+  width: 100%;
+  height: 40px;
+}
+
+.showHeader .showHeaderNav > .subNav {
+  width: 1100px;
+  line-height: 40px;
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+}
+
+.showHeader .showHeaderNav > .subNav li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.showHeader .showHeaderNav > .subNav li a {
+  color: white;
+}
+
+.showHeader .showHeaderNav > .subNav li > .subNav {
+  width: 1100px;
+  height: 400px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: #969494;
+  display: none;
+}
+
+.showHeader .showHeaderNav > .subNav > li:first-child {
+  background-color: red;
+}
+
+.showHeader .showHeaderNav > .subNav li:hover {
+  background-color: red;
+}
+
+.showHeader .showHeaderNav > .subNav li:hover > .subNav {
+  display: block;
+}
+
+.container {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container .imageBar {
+  width: 420px;
+  height: 500px;
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container .imageBar .bigImg {
+  width: 100%;
+  height: 420px;
+  background-color: grey;
+}
+
+.container .imageBar .smallImg {
+  width: 100%;
+  height: 50px;
+  background-color: #f9f9f9;
+}
+
+.container .imageBar .overImg {
+  width: 500px;
+  height: 500px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 420px;
+  display: none;
+}

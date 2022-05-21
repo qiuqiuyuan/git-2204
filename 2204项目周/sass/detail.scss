@@ -1,0 +1,299 @@
+.header {
+  width: 100%;
+  height: 31px;
+
+  background-color: rgba($color: #dfdfdf, $alpha: 1);
+  .w {
+    width: 1200px;
+    height: 100%;
+    font-size: 13px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // position: relative;
+
+    .nav {
+      display: flex;
+      height: 100%;
+      line-height: 20px;
+      float: left;
+      > li:first-child > a:first-child {
+        border-right: none;
+      }
+      > li:last-child > a:last-child {
+        border-right: none;
+      }
+
+      > li {
+        line-height: 30px;
+        margin-left: 2px;
+        margin-right: 2px;
+        position: relative;
+        top: 0;
+        left: 0;
+        > a {
+          color: #969494;
+          box-sizing: border-box;
+
+          border-right: 1px solid #969494;
+          padding-left: 5px;
+          padding-right: 5px;
+
+          z-index: 1;
+        }
+
+        > a:hover {
+          color: red;
+        }
+
+        > .subNav {
+          text-indent: 20px;
+          line-height: 30px;
+          font-size: 14px;
+          width: 100%;
+          background: #f9f9f9;
+          border: 1px solid grey;
+          position: absolute;
+          left: 0;
+          top: 30px;
+          display: none;
+          z-index: 1;
+        }
+      }
+      > li:hover {
+        background-color: #f9f9f9;
+        .subNav {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .searchBar {
+    width: 1200px;
+    height: 140px;
+    margin: 0 auto;
+    position: relative;
+    // background-color: aqua;
+    .log {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 270px;
+      height: 60px;
+      z-index: 2;
+      // background-image: url(https://misc.360buyimg.com/jdf/1.0.0/unit/global-header/1.0.0/i/jdlogo-201708-@1x.png) no-repeat 0 0;
+      img {
+        width: 134px;
+        height: 60px;
+      
+    }
+    >li{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        >a{
+            border: 1px solid grey;
+        }
+       
+        .subNav{
+            display: none;
+            width: 100px;
+            // left: 30px;
+            position: absolute;
+            top: 42px;
+
+            font-size: 14px;
+            color: #969494;
+            background-color: white;
+            border: 1px solid #dfdfdf;
+        }
+      }
+      >li:hover{
+          .subNav{
+              display: block;
+          }
+      }
+
+    }
+    .searchBarBox {
+      width: 700px;
+      height: 40px;
+      // background-color: aqua
+      padding-top: 40px;
+      display: flex;
+      justify-content: end;
+      margin-left: 255px;
+      //    text-align: end;
+
+      input {
+        width: 470px;
+        height: 35px;
+
+        border: 2px solid red;
+      }
+
+      .iconBox {
+        width: 51px;
+        height: 40px;
+        text-align: center;
+
+        color: #fff;
+        background-color: red;
+
+        a {
+          font-size: 36px;
+          line-height: 15px;
+          vertical-align: bottom;
+        }
+    }
+    .search_btn{
+        width: 55px;
+        height: 39px;
+        // box-sizing: border-box;
+        border: none;
+        padding-bottom: 2px;
+    }
+    
+    :nth-child(2){
+        background-color: red;
+        color: white;
+        border-bottom: 1px solid red;
+    }
+    :nth-child(3){
+        background-color: black;
+        color: white;
+        border-bottom: 1px solid red;
+    }
+    }
+
+    .hot_word {
+      width: 520px;
+      height: 20px;
+
+     
+      margin-left: 28px;
+      font-size: 12px;
+      // background-color: aqua;
+
+      display: flex;
+      justify-content: end;
+
+      > a {
+        color: rgba($color: #969494, $alpha: 1);
+        padding-right: 15px;
+      }
+    }
+
+    .key_word {
+      width: 550px;
+      height: 20px;
+      margin-top: 5px;
+      text-align: end;
+      > a {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+.showHeader{
+    margin-top: 128px;
+    // background-color: aqua;
+    // position: ;
+    width: 100%;
+    height: 150px;
+    .showHeaderImg{
+        // height: 80%;
+        margin-left: 310px;
+        img{
+            
+            height: 110px;
+            width: 1240px;
+        }
+    }
+
+    .showHeaderNav{
+        background-color: black;
+        width: 100%;
+        height: 40px;
+        >.subNav{
+            // margin-left: 360px;
+            width: 1100px;
+            line-height: 40px;
+            display: flex;
+            // background-color: aqua;
+            position: relative;
+            margin:0 auto;
+            li{
+                padding-left: 10px;
+                padding-right: 10px;
+                a{
+                    color:white
+                }
+                >.subNav{
+                   width: 1100px;
+                   height: 400px; 
+                   position: absolute;
+                   top: 40px;
+                   left: 0;
+                 
+                   background-color: #969494;
+                   display: none;
+                }
+            }
+            >li:first-child{
+                background-color: red;
+            }
+            li:hover{
+                background-color: red;
+                >.subNav{
+                    display: block;
+                }
+            }
+        }
+
+    }
+}
+
+.container{
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    .imageBar{
+        width: 420px;
+        height: 500px;
+        background-color: aqua;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        .bigImg{
+            width: 100%;
+            height: 420px;
+            background-color: grey;
+        }
+        .smallImg{
+            width: 100%;
+            height: 50px;
+            background-color: #f9f9f9;
+        }
+        .overImg{
+            width: 500px;
+            height: 500px;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 420px;
+            display: none;
+
+        }
+    }
+}

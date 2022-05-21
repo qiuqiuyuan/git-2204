@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script src="../js/ajax.js"></script>
 	</head>
 	<body>
 		
@@ -15,6 +16,20 @@
 		
 		// ??????????????????????????
 		//
+		ajax({
+			type:'get',
+			url:'../php/goodslist.php',
+			success:res=>{
+				const {status,list}=res;
+				console.log(status);
+				if(status){
+					list.forEach(v => {
+						const{goodsDetail}=v;
+						console.log(goodsDetail);
+					});
+				}
+			}
+		})
 		
 	</script>
 </html>

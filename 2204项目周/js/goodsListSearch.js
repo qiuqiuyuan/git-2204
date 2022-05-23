@@ -1,27 +1,27 @@
 let kw = "";
 const oBtn = document.querySelector(".search_btn");
 const oGoodsList = document.querySelector(".goodsList");
-const oAsc=document.querySelector('.asc');
-const oDesc=document.querySelector('.desc');
+const oAsc = document.querySelector('.asc');
+const oDesc = document.querySelector('.desc');
 let keyWord = document.querySelector("input");
 kw = queryString("kw");
 setList3();
 oAsc.addEventListener("click", function () {
-      ajax({
-        type: "get",
-        url: "../php/asc&desc.php",
-        data: { sort: "asc" },
-        success: (res) => {
-          const { status, msg, list } = res;
-          // console.log(list);
+  ajax({
+    type: "get",
+    url: "../php/asc&desc.php",
+    data: { sort: "asc" },
+    success: (res) => {
+      const { status, msg, list } = res;
+      // console.log(list);
 
-          if(status){
-        
-        let html='';
-      list.forEach(v => {
-          const {goodsId,goodsName,goodsImg,goodsPrice}=v;
-          
-          html+=`
+      if (status) {
+
+        let html = '';
+        list.forEach(v => {
+          const { goodsId, goodsName, goodsImg, goodsPrice } = v;
+
+          html += `
           
           <li>
              
@@ -34,27 +34,27 @@ oAsc.addEventListener("click", function () {
             </p>
         </li>
           `
-          oGoodsList.innerHTML=html;
-      });
+          oGoodsList.innerHTML = html;
+        });
       }
-        },
-      });
-    });
+    },
+  });
+});
 
-    oDesc.addEventListener("click", function () {
-      ajax({
-        type: "get",
-        url: "../php/asc&desc.php",
-        data: { sort: "desc" },
-        success: (res) => {
-          const { status, msg, list } = res;
-          if(status){
-        
-        let html='';
-      list.forEach(v => {
-          const {goodsId,goodsName,goodsImg,goodsPrice}=v;
-          
-          html+=`
+oDesc.addEventListener("click", function () {
+  ajax({
+    type: "get",
+    url: "../php/asc&desc.php",
+    data: { sort: "desc" },
+    success: (res) => {
+      const { status, msg, list } = res;
+      if (status) {
+
+        let html = '';
+        list.forEach(v => {
+          const { goodsId, goodsName, goodsImg, goodsPrice } = v;
+
+          html += `
           
           <li>
              
@@ -67,12 +67,12 @@ oAsc.addEventListener("click", function () {
             </p>
         </li>
           `
-          oGoodsList.innerHTML=html;
-      });
+          oGoodsList.innerHTML = html;
+        });
       }
-        },
-      });
-    });
+    },
+  });
+});
 
 
 
@@ -91,14 +91,14 @@ function setList3() {
     },
     success: (res) => {
       const { status, msg, list } = res;
-      console.log(status,list);
-      if(status){
-        
-        let html='';
-      list.forEach(v => {
-          const {goodsId,goodsName,goodsImg,goodsPrice}=v;
-          
-          html+=`
+      console.log(status, list);
+      if (status) {
+
+        let html = '';
+        list.forEach(v => {
+          const { goodsId, goodsName, goodsImg, goodsPrice } = v;
+
+          html += `
           
           <li>
              
@@ -111,8 +111,8 @@ function setList3() {
             </p>
         </li>
           `
-          oGoodsList.innerHTML=html;
-      });
+          oGoodsList.innerHTML = html;
+        });
       }
     },
   });

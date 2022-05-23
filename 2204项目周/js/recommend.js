@@ -14,7 +14,7 @@ function setList2(){
 					html1+=`
 					
 					<li>
-                <a href="" ><img
+                <a href="./detail.html?id=${goodsId}" ><img
                         src="${goodsImg}"
                         alt=""></a>
                 <p class="title1">${goodsName}</p>

@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   height: 31px;
+  position: relative;
   background-color: #dfdfdf;
 }
 
@@ -94,7 +95,8 @@
 
 .header .searchBar .log img {
   width: 134px;
-  height: 60px;
+  height: 40px;
+  margin-left: -136px;
 }
 
 .header .searchBar .log > li {
@@ -125,17 +127,17 @@
 
 .header .searchBar .searchBarBox {
   width: 700px;
-  height: 40px;
-  padding-top: 40px;
+  height: 35px;
+  padding-top: 30px;
   display: flex;
   justify-content: end;
-  margin-left: 255px;
+  margin-left: 280px;
 }
 
 .header .searchBar .searchBarBox input {
-  width: 470px;
-  height: 35px;
-  border: 2px solid red;
+  width: 520px;
+  height: 30px;
+  border: 1px solid red;
 }
 
 .header .searchBar .searchBarBox .iconBox {
@@ -146,7 +148,7 @@
   background-color: red;
 }
 
-.header .searchBar .searchBarBox .iconBox a {
+.header .searchBar .searchBarBox .iconBox > a {
   font-size: 36px;
   line-height: 15px;
   vertical-align: bottom;
@@ -154,7 +156,7 @@
 
 .header .searchBar .searchBarBox .search_btn {
   width: 55px;
-  height: 39px;
+  height: 32px;
   border: none;
   padding-bottom: 2px;
 }
@@ -162,17 +164,18 @@
 .header .searchBar .searchBarBox :nth-child(2) {
   background-color: red;
   color: white;
-  border-bottom: 1px solid red;
 }
 
 .header .searchBar .searchBarBox :nth-child(3) {
-  background-color: black;
-  color: white;
-  border-bottom: 1px solid red;
+  width: 120px;
+  margin-left: 80px;
+  color: red;
+  background-color: #dfdfdf;
+  border: 1px solid #969494;
 }
 
 .header .searchBar .hot_word {
-  width: 520px;
+  width: 760px;
   height: 20px;
   margin-left: 28px;
   font-size: 12px;
@@ -196,192 +199,106 @@
   padding-left: 10px;
 }
 
-.showHeader {
-  margin-top: 128px;
-  width: 100%;
-  height: 150px;
-}
-
-.showHeader .showHeaderImg {
-  margin-left: 310px;
-}
-
-.showHeader .showHeaderImg img {
-  height: 110px;
-  width: 1240px;
-}
-
-.showHeader .showHeaderNav {
-  background-color: black;
+.linkLine {
   width: 100%;
   height: 40px;
+  border-bottom: 1px solid red;
+  position: absolute;
+  top: 130px;
 }
 
-.showHeader .showHeaderNav > .subNav {
-  width: 1100px;
+.linkLine .w {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.linkLine .w > ul {
   line-height: 40px;
   display: flex;
-  position: relative;
-  margin: 0 auto;
 }
 
-.showHeader .showHeaderNav > .subNav li {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.showHeader .showHeaderNav > .subNav li a {
-  color: white;
-}
-
-.showHeader .showHeaderNav > .subNav li > .subNav {
-  width: 1100px;
-  height: 400px;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background-color: #969494;
-  display: none;
-  z-index: 2;
-}
-
-.showHeader .showHeaderNav > .subNav > li:first-child {
-  background-color: red;
-}
-
-.showHeader .showHeaderNav > .subNav li:hover {
-  background-color: red;
-}
-
-.showHeader .showHeaderNav > .subNav li:hover > .subNav {
+.linkLine .w > ul > li:hover > .subNav1 {
   display: block;
 }
 
-.container {
-  width: 1100px;
-  margin: 0 auto;
-  position: relative;
-  display: flex;
-}
-
-.container .imageBar {
-  width: 420px;
-  height: 500px;
-  background-color: aqua;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.container .imageBar .bigImg {
-  width: 100%;
-  height: 420px;
-  background-color: grey;
-}
-
-.container .imageBar .smallImg {
-  width: 100%;
-  height: 50px;
-  background-color: #f9f9f9;
-}
-
-.container .imageBar .overImg {
-  width: 500px;
-  height: 500px;
-  background-color: black;
-  position: absolute;
-  top: 0;
-  left: 420px;
+.linkLine .w > ul > li > .subNav1 {
   display: none;
 }
 
-.container .detailsR {
-  width: 680px;
+.linkLine .w > ul > li > .subNav1 > li:hover > .subNav {
+  display: block;
 }
 
-.container .detailsR .name {
-  width: 100%;
-  font-size: 18px;
-  color: grey;
-  margin-top: 15px;
-}
-
-.container .detailsR p {
+.linkLine .w > ul > li > .subNav1 > li > a {
   font-size: 12px;
 }
 
-.container .detailsR .price {
-  width: 100%;
-  height: 110px;
-  background-color: #dfdfdf;
+.linkLine .w > ul > li > .subNav1 > li > .subNav {
+  width: 1019px;
+  height: 500px;
+  position: absolute;
+  top: 41px;
+  left: 166px;
+  display: none;
+  background-color: aqua;
 }
 
-.container .detailsR .price span {
-  display: flex;
-  align-items: baseline;
-}
-
-.container .detailsR .price span :nth-child(1) {
-  font-size: 14px;
-  color: #969494;
-  padding-right: 5px;
-}
-
-.container .detailsR .price span :nth-child(2) {
-  color: red;
-  font-size: 16px;
-  padding-right: 5px;
-}
-
-.container .detailsR .price span :nth-child(3) {
-  color: red;
-  font-size: 24px;
-}
-
-.container .detailsR .price span :nth-child(4) {
-  padding-left: 15px;
-  color: #0099CC;
-  font-size: 14px;
-}
-
-.container .detailsR .address {
-  height: 40px;
-}
-
-.container .detailsR .address span {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.container .detailsR .configuration {
-  width: 100%;
-  height: 200px;
-  background-color: #0099CC;
-}
-
-.container .countBar {
-  display: flex;
-}
-
-.container .countBar .count {
-  display: flex;
-}
-
-.container .countBar .count .left input {
-  width: 50px;
-  height: 50px;
-  border-right: none;
-}
-
-.container .countBar .count .right {
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
-.container .countBar .count .right > button {
-  font-size: 20px;
-  width: 25px;
-  height: 27px;
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi > .li1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px;
+}
+
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi > .li1 > li {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 0;
+}
+
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi > .li1 > li > a {
+  margin-left: 0;
+}
+
+.goodsList {
+  width: 61%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin: 0 auto;
+  margin-top: 300px;
+}
+
+.goodsList > li {
+  width: 230px;
+  height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.goodsList > li img {
+  width: 160px;
+  height: 160px;
+}
+
+.goodsList > li > .title1 {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goodsList > li > .price1 {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
 }

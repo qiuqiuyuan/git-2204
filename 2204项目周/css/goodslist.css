@@ -1,0 +1,263 @@
+.header {
+  width: 100%;
+  height: 31px;
+  position: relative;
+  background-color: #dfdfdf;
+}
+.header .w {
+  width: 1200px;
+  height: 100%;
+  font-size: 13px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .w .nav {
+  display: flex;
+  height: 100%;
+  line-height: 20px;
+  float: left;
+}
+.header .w .nav > li:first-child > a:first-child {
+  border-right: none;
+}
+.header .w .nav > li:last-child > a:last-child {
+  border-right: none;
+}
+.header .w .nav > li {
+  line-height: 30px;
+  margin-left: 2px;
+  margin-right: 2px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.header .w .nav > li > a {
+  color: #969494;
+  box-sizing: border-box;
+  border-right: 1px solid #969494;
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index: 1;
+}
+.header .w .nav > li > a:hover {
+  color: red;
+}
+.header .w .nav > li > .subNav {
+  text-indent: 20px;
+  line-height: 30px;
+  font-size: 14px;
+  width: 100%;
+  background: #f9f9f9;
+  border: 1px solid grey;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  display: none;
+  z-index: 1;
+}
+.header .w .nav > li:hover {
+  background-color: #f9f9f9;
+}
+.header .w .nav > li:hover .subNav {
+  display: block;
+}
+.header .searchBar {
+  width: 1200px;
+  height: 140px;
+  margin: 0 auto;
+  position: relative;
+}
+.header .searchBar .log {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 270px;
+  height: 60px;
+  z-index: 2;
+}
+.header .searchBar .log img {
+  width: 134px;
+  height: 40px;
+  margin-left: -136px;
+}
+.header .searchBar .log > li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.header .searchBar .log > li > a {
+  border: 1px solid grey;
+}
+.header .searchBar .log > li .subNav {
+  display: none;
+  width: 100px;
+  position: absolute;
+  top: 42px;
+  font-size: 14px;
+  color: #969494;
+  background-color: white;
+  border: 1px solid #dfdfdf;
+}
+.header .searchBar .log > li:hover .subNav {
+  display: block;
+}
+.header .searchBar .searchBarBox {
+  width: 700px;
+  height: 35px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: end;
+  margin-left: 280px;
+}
+.header .searchBar .searchBarBox input {
+  width: 520px;
+  height: 30px;
+  border: 1px solid red;
+}
+.header .searchBar .searchBarBox .iconBox {
+  width: 51px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: red;
+}
+.header .searchBar .searchBarBox .iconBox > a {
+  font-size: 36px;
+  line-height: 15px;
+  vertical-align: bottom;
+}
+.header .searchBar .searchBarBox .search_btn {
+  width: 55px;
+  height: 32px;
+  border: none;
+  padding-bottom: 2px;
+}
+.header .searchBar .searchBarBox :nth-child(2) {
+  background-color: red;
+  color: white;
+}
+.header .searchBar .searchBarBox :nth-child(3) {
+  width: 120px;
+  margin-left: 80px;
+  color: red;
+  background-color: #dfdfdf;
+  border: 1px solid #969494;
+}
+.header .searchBar .hot_word {
+  width: 760px;
+  height: 20px;
+  margin-left: 28px;
+  font-size: 12px;
+  display: flex;
+  justify-content: end;
+}
+.header .searchBar .hot_word > a {
+  color: #969494;
+  padding-right: 15px;
+}
+.header .searchBar .key_word {
+  width: 550px;
+  height: 20px;
+  margin-top: 5px;
+  text-align: end;
+}
+.header .searchBar .key_word > a {
+  padding-left: 10px;
+}
+
+.linkLine {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid red;
+  position: absolute;
+  top: 130px;
+}
+.linkLine .w {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.linkLine .w > ul {
+  line-height: 40px;
+  display: flex;
+}
+.linkLine .w > ul > li:hover > .subNav1 {
+  display: block;
+}
+.linkLine .w > ul > li > .subNav1 {
+  display: none;
+}
+.linkLine .w > ul > li > .subNav1 > li:hover > .subNav {
+  display: block;
+}
+.linkLine .w > ul > li > .subNav1 > li > a {
+  font-size: 12px;
+}
+.linkLine .w > ul > li > .subNav1 > li > .subNav {
+  width: 1019px;
+  height: 500px;
+  position: absolute;
+  top: 41px;
+  left: 166px;
+  display: none;
+  background-color: aqua;
+}
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi {
+  display: flex;
+  flex-direction: column;
+}
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi > .li1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px;
+}
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi > .li1 > li {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 0;
+}
+.linkLine .w > ul > li > .subNav1 > li > .subNav > .subNavLi > .li1 > li > a {
+  margin-left: 0;
+}
+
+.goodsList {
+  width: 61%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin: 0 auto;
+  margin-top: 300px;
+}
+.goodsList > li {
+  width: 230px;
+  height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.goodsList > li img {
+  width: 160px;
+  height: 160px;
+}
+.goodsList > li > .title1 {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.goodsList > li > .price1 {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+}
+
+/*# sourceMappingURL=goodslist.css.map */

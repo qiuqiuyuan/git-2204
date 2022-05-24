@@ -4,6 +4,7 @@ const oGoodsList = document.querySelector(".goodsList");
 const oAsc = document.querySelector('.asc');
 const oDesc = document.querySelector('.desc');
 let keyWord = document.querySelector("input");
+const intoCart=document.querySelector('.cart');
 kw = queryString("kw");
 setList3();
 oAsc.addEventListener("click", function () {
@@ -116,4 +117,11 @@ function setList3() {
       }
     },
   });
+}
+
+intoCart.onclick=function(){
+  const user = getCookie("lgc");
+  if(user){
+    location.href='./shoppingCar.html';
+  }
 }

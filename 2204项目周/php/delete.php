@@ -6,7 +6,7 @@ $conn=mysqli_connect("localhost:3306","root","123456","2204");
 $id=$_GET["id"];
 $res=[];
 
-$sql="delete from `shoppingcar` where id = '$id'";
+$sql="delete from `shoppingcar` where cartId = '$id'";
 $data=mysqli_query($conn,$sql);
 //得到结果集  转数组
 

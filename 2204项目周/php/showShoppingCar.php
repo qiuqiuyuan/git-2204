@@ -25,6 +25,7 @@
         $arr['goodsName'] = $aa['goodsName'] ;
         // $arr['cart_id'] = $aa['cart_id'] ;
         $arr['buyNum'] = $aa['buyNum'] ;
+        $arr['cartId'] = $aa['cartId'] ;
         array_push($list , $arr) ;
     }
 

@@ -62,8 +62,23 @@
   position: absolute;
   left: 0;
   top: 30px;
-  display: none;
   z-index: 1;
+  width: 660px;
+  height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.header .w .nav > li > .subNav > .top {
+  width: 300px;
+  height: 100%;
+}
+
+.header .w .nav > li > .subNav > .bottom {
+  width: 300px;
+  height: 100%;
 }
 
 .header .w .nav > li:hover {
@@ -71,7 +86,7 @@
 }
 
 .header .w .nav > li:hover .subNav {
-  display: block;
+  visibility: visible;
 }
 
 .header .searchBar {
@@ -218,8 +233,18 @@
   display: flex;
 }
 
+.linkLine .w > ul > :nth-child(1) {
+  width: 200px;
+  background-color: red;
+  text-align: center;
+}
+
 .linkLine .w > ul > li:hover > .subNav1 {
   display: block;
+}
+
+.linkLine .w > ul > li {
+  padding-left: 5px;
 }
 
 .linkLine .w > ul > li > .subNav1 {
@@ -236,10 +261,10 @@
 
 .linkLine .w > ul > li > .subNav1 > li > .subNav {
   width: 1019px;
-  height: 500px;
+  height: 533px;
   position: absolute;
   top: 41px;
-  left: 166px;
+  left: 205px;
   display: none;
   background-color: aqua;
 }

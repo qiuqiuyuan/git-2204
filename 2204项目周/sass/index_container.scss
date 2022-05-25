@@ -184,7 +184,10 @@
           height: 400px;
           margin: 0 auto;
 
-          background-image: url("https://misc.360buyimg.com/mtd/pc/common/img/no_login.jpg");
+         img{
+           width: 100px;
+           height: 80px;
+         }
         }
 
         .carousel_log_rl_lr {

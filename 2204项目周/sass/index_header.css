@@ -23,6 +23,7 @@ html {
   height: 100%;
   line-height: 20px;
   float: left;
+  position: relative;
 }
 
 .header .w .nav > li:first-child > a:first-child {
@@ -37,9 +38,6 @@ html {
   line-height: 30px;
   margin-left: 2px;
   margin-right: 2px;
-  position: relative;
-  top: 0;
-  left: 0;
 }
 
 .header .w .nav > li > a {
@@ -65,16 +63,31 @@ html {
   position: absolute;
   left: 0;
   top: 30px;
-  display: none;
   z-index: 1;
+  width: 660px;
+  height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.header .w .nav > li > .subNav > .top {
+  width: 300px;
+  height: 100%;
+}
+
+.header .w .nav > li > .subNav > .bottom {
+  width: 300px;
+  height: 100%;
 }
 
 .header .w .nav > li:hover {
   background-color: #f9f9f9;
 }
 
-.header .w .nav > li:hover .subNav {
-  display: block;
+.header .w .nav > li:hover > .subNav {
+  visibility: visible;
 }
 
 .header .searchBar {

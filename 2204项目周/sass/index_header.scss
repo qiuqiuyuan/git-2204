@@ -24,35 +24,32 @@ html {
       height: 100%;
       line-height: 20px;
       float: left;
-      > li:first-child>a:first-child{
-        border-right:none;
+      position: relative;
+      > li:first-child > a:first-child {
+        border-right: none;
       }
-      > li:last-child>a:last-child{
-        border-right:none;
+      > li:last-child > a:last-child {
+        border-right: none;
       }
-      
       > li {
         line-height: 30px;
         margin-left: 2px;
         margin-right: 2px;
-        position: relative;
-        top: 0;
-        left: 0;
+        // position: relative;
+        // top: 0;
+        // left: 0;
         > a {
           color: #969494;
           box-sizing: border-box;
-
           border-right: 1px solid #969494;
           padding-left: 5px;
           padding-right: 5px;
-         
+
           z-index: 1;
         }
-       
         > a:hover {
           color: red;
         }
-
         > .subNav {
           text-indent: 20px;
           line-height: 30px;
@@ -63,19 +60,36 @@ html {
           position: absolute;
           left: 0;
           top: 30px;
-          display: none;
           z-index: 1;
+          width: 660px;
+          height: 140px;
+          display: flex;
+          flex-wrap: wrap;
+          visibility: hidden;
+          overflow: hidden;
+          >.top{
+            width: 300px;
+            height: 100%;
+            // display: flex;
+            
+          }
+          >.bottom{
+            // display: flex;
+            width: 300px;
+            height: 100%;
+           
+          }
         }
       }
       > li:hover {
-          background-color: #f9f9f9;
-        .subNav {
-          display: block;
+        background-color: #f9f9f9;
+        >.subNav {
+          visibility: visible;
+        
         }
       }
     }
   }
-
   .searchBar {
     width: 1200px;
     height: 140px;
@@ -97,28 +111,25 @@ html {
       padding-top: 40px;
       display: flex;
       justify-content: end;
-
       margin-left: 250px;
-
       //    text-align: end;
-
       input {
         width: 360px;
         height: 40px;
         border: none;
       }
-      .search_btn{
+      .search_btn {
         width: 50px;
         height: 40px;
         background-color: red;
         border: none;
-        .iconfont{
+        .iconfont {
           color: white;
           font-size: 24px;
           font-weight: 700;
         }
       }
-      .cart{
+      .cart {
         width: 150px;
         height: 40px;
         background-color: white;
@@ -126,7 +137,7 @@ html {
         display: flex;
         justify-content: center;
         margin-left: 100px;
-        span{
+        span {
           line-height: 40px;
         }
       }
@@ -134,11 +145,8 @@ html {
         width: 51px;
         height: 40px;
         text-align: center;
-        
-
         color: #fff;
         background-color: red;
-
         a {
           font-size: 36px;
           line-height: 15px;
@@ -146,24 +154,19 @@ html {
         }
       }
     }
-
     .hot_word {
       width: 520px;
       height: 20px;
-
       margin-top: 10px;
       font-size: 12px;
       // background-color: aqua;
-
       display: flex;
       justify-content: end;
-
       > a {
         color: rgba($color: #969494, $alpha: 1);
         padding-right: 15px;
       }
     }
-
     .key_word {
       width: 550px;
       height: 20px;

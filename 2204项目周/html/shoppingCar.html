@@ -1,305 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="../css/shoppingCar_header.css">
-    <link rel="stylesheet" href="../css/shoppingCar_container.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shoppingCar_header.css" />
+    <link rel="stylesheet" href="../css/shoppingCar_container.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/cookie.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="../js/api.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <div class="w">
-          <div class="location">湖北</div>
-  
-          <ul class="nav">
-            <li>
-              <a href="./log.html">你好请登录</a>&emsp;<a
-                href="./resg.html"
-                class="res_btn"
-                >免费注册</a
-              >
-            </li>
-            <li>
-              <a href="javascript:;">我的订单</a>
-            </li>
-            <li>
-              <a href="javascript:;">我的京东</a>
-              <ul class="subNav">
-                <li><a href="javascript:;">待处理订单</a></li>
-                <li><a href="javascript:;">返修退换货</a></li>
-                <li><a href="javascript:;">降价商品</a></li>
-                <li><a href="javascript:;">我的问答</a></li>
-                <li><a href="javascript:;">我的关注</a></li>
-                <li><a href="javascript:;">我的京豆</a></li>
-                <li><a href="javascript:;">我的白条</a></li>
-                <li><a href="javascript:;">我的优惠券</a></li>
-                <li><a href="javascript:;">我的理财</a></li>
-              </ul>
-            </li>
-            <li>京东会员</li>
-            <li>
-              <a href="javascript:;"> 企业采购</a>
-              <ul class="subNav">
+      <div class="w">
+        <div class="location">湖北</div>
+
+        <ul class="nav">
+          <li class="loginBar">
+          
+          </li>
+          <li>
+            <a href="javascript:;">我的订单</a>
+          </li>
+          <li>
+            <a href="javascript:;">我的京东</a>
+            <ul class="subNav">
+              <li><a href="javascript:;">待处理订单</a></li>
+              <li><a href="javascript:;">返修退换货</a></li>
+              <li><a href="javascript:;">降价商品</a></li>
+              <li><a href="javascript:;">我的问答</a></li>
+              <li><a href="javascript:;">我的关注</a></li>
+              <li><a href="javascript:;">我的京豆</a></li>
+              <li><a href="javascript:;">我的白条</a></li>
+              <li><a href="javascript:;">我的优惠券</a></li>
+              <li><a href="javascript:;">我的理财</a></li>
+            </ul>
+          </li>
+          <li>京东会员</li>
+          <li>
+            <a href="javascript:;"> 企业采购</a>
+            <ul class="subNav">
+              <li><a href="javascript:;">企业采购</a></li>
+              <li><a href="javascript:;">商用场景馆</a></li>
+              <li><a href="javascript:;">工业品</a></li>
+              <li><a href="javascript:;">礼品卡</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:;"> 客户服务</a>
+            <ul class="subNav">
+              <div class="top">
+                <h5>客户</h5>
                 <li><a href="javascript:;">企业采购</a></li>
                 <li><a href="javascript:;">商用场景馆</a></li>
                 <li><a href="javascript:;">工业品</a></li>
                 <li><a href="javascript:;">礼品卡</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;"> 客户服务</a>
-              <ul class="subNav">
-                <div class="top">
-                  <h5>客户</h5>
-                  <li><a href="javascript:;">企业采购</a></li>
-                  <li><a href="javascript:;">商用场景馆</a></li>
-                  <li><a href="javascript:;">工业品</a></li>
-                  <li><a href="javascript:;">礼品卡</a></li>
-                  <li><a href="javascript:;">企业采购</a></li>
-                  <li><a href="javascript:;">商用场景馆</a></li>
-                  <li><a href="javascript:;">工业品</a></li>
-                  <li><a href="javascript:;">礼品卡</a></li>
-                  <li><a href="javascript:;">工业品</a></li>
-                  <li><a href="javascript:;">礼品卡</a></li>
-                </div>
-                <div class="bottom">
-                  <h5>商户</h5>
-                  <li><a href="javascript:;">企业采购</a></li>
-                  <li><a href="javascript:;">商用场景馆</a></li>
-                  <li><a href="javascript:;">工业品</a></li>
-                  <li><a href="javascript:;">礼品卡</a></li>
-                  <li><a href="javascript:;">工业品</a></li>
-                  <li><a href="javascript:;">礼品卡</a></li>
-                </div>
-              </ul>
-            </li>
-            <li>网站导航</li>
-            <li>手机京东</li>
-            <a href="javascript:;">网站无障碍</a>
-          </ul>
-        </div>
-        <div class="searchBar">
-          <div class="log"></div>
-          <div class="searchBarBox">
-            <input type="text" />
-            <div class="iconBox">
-              <a href="" class="iconfont icon-sousuo">搜索</a>
-            </div>
-          </div>
-       
-        </div>
-        <div class="catbox">
-          <table id="cartTable">
-            <thead>
-              <tr>
-                <th><label>
-                    <input class="check-all check" type="checkbox" />&nbsp;&nbsp;全选</label></th>
-                <th>商品</th>
-                <th>单价</th>
-                <th>数量</th>
-                <th>小计</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- <tr>
-                        <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
-                        <td class="goods"><img src="../images/1.jpg" alt="" /><span>Casio/卡西欧 EX-TR350</span></td>
-                        <td class="price">5999.88</td>
-                        <td class="count"><span class="reduce"></span>
-                            <input class="count-input" type="text" value="1" />
-                            <span class="add">+</span>
-                        </td>
-                        <td class="subtotal">5999.88</td>
-                        <td class="operation"><span class="delete">删除</span></td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
-                        <td class="goods"><img src="../images/2.jpg" alt="" /><span>Canon/佳能 PowerShot SX50 HS</span></td>
-                        <td class="price">3888.50</td>
-                        <td class="count"><span class="reduce"></span>
-                            <input class="count-input" type="text" value="1" />
-                            <span class="add">+</span>
-                        </td>
-                        <td class="subtotal">3888.50</td>
-                        <td class="operation"><span class="delete">删除</span></td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
-                        <td class="goods"><img src="../images/3.jpg" alt="" /><span>Sony/索尼 DSC-WX300</span></td>
-                        <td class="price">1428.50</td>
-                        <td class="count"><span class="reduce"></span>
-                            <input class="count-input" type="text" value="1" />
-                            <span class="add">+</span>
-                        </td>
-                        <td class="subtotal">1428.50</td>
-                        <td class="operation"><span class="delete">删除</span></td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
-                        <td class="goods"><img src="../images/4.jpg" alt="" /><span>Fujifilm/富士 instax mini 25</span></td>
-                        <td class="price">640.60</td>
-                        <td class="count"><span class="reduce"></span>
-                            <input class="count-input" type="text" value="1" />
-                            <span class="add">+</span>
-                        </td>
-                        <td class="subtotal">640.60</td>
-                        <td class="operation"><span class="delete">删除</span></td>
-                    </tr> -->
-            </tbody>
-          </table>
-          <div class="foot" id="foot">
-    
-            <a class="fl" id="deleteAll" href="javascript:;">删除</a>
-            <div class="fr closing" onclick="getTotal();">结 算</div>
-            <input type="hidden" id="cartTotalPrice" />
-            <div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
-            <div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件<span
-                class="arrow up">︽</span><span class="arrow down">︾</span></div>
-            <div class="selected-view">
-              <div id="selectedViewList" class="clearfix">
-                <div><img src="../images/1.jpg"><span>取消选择</span></div>
+                <li><a href="javascript:;">企业采购</a></li>
+                <li><a href="javascript:;">商用场景馆</a></li>
+                <li><a href="javascript:;">工业品</a></li>
+                <li><a href="javascript:;">礼品卡</a></li>
+                <li><a href="javascript:;">工业品</a></li>
+                <li><a href="javascript:;">礼品卡</a></li>
               </div>
-              <span class="arrow">◆<span>◆</span></span>
-            </div>
+              <div class="bottom">
+                <h5>商户</h5>
+                <li><a href="javascript:;">企业采购</a></li>
+                <li><a href="javascript:;">商用场景馆</a></li>
+                <li><a href="javascript:;">工业品</a></li>
+                <li><a href="javascript:;">礼品卡</a></li>
+                <li><a href="javascript:;">工业品</a></li>
+                <li><a href="javascript:;">礼品卡</a></li>
+              </div>
+            </ul>
+          </li>
+          <li>网站导航</li>
+          <li>手机京东</li>
+          <a href="javascript:;">网站无障碍</a>
+        </ul>
+      </div>
+      <div class="searchBar">
+        <div class="log"></div>
+        <div class="searchBarBox">
+          <input type="text" />
+          <div class="iconBox">
+            <a href="" class="iconfont icon-sousuo">搜索</a>
           </div>
         </div>
       </div>
-</body>
-<script>
-  		const user = getCookie('lgc');
-  let oOnes;
-  let countIpt;
-setList();
-
-
-function setList() {
-  if (user) {
-    ajax({
-      type: 'get',
-      url: '../php/showShoppingCar.php',
-      data: {
-        user: user,
-      },
-      success: res => {
-        let html = '';
-        const {
-          status,
-          msg,
-          list
-        } = res;
-        console.log(list);
-        list.forEach(v => {
-          console.log(v);
-          console.log(v.cartId);
-          html += `
-      
-      <tr data-id="${v.cartId}">
-          <td class="checkbox"><input class="check-one check" type="checkbox" /></td>
-          <td class="goods"><img src="${v.goodsImg}" alt="" /><span>${v.goodsName}</span></td>
-          <td class="price">${v.goodsPrice}</td>
-          <td class="count">
-        <span class="reduce">${v.buyNum >1?"-":""}</span>
-              <input class="count-input" type="text" value="${v.buyNum}" />
-              <span class="add" onclick="add('${v.cartId}',this)">+</span>
-          </td>
-          <td class="subtotal">${(v.goodsPrice*v.buyNum).toFixed(2)}</td>
-          <td class="operation"><span class="delete" onclick="del('${v.cartId}' , this)">删除</span></td>
-      </tr>
-      `
-
-          let oTbody = document.querySelector("tbody");
-          oTbody.innerHTML = html;
-
-
-          oOnes=document.querySelectorAll('.check-one');
-          countIpt=document.querySelector('.count-input');
-
-        })
-      }
-    })
-  }
-}
-
-function del(id,obj){
-  const xhr = new XMLHttpRequest();
-  xhr.open('get', `../php/delete.php?id=${id}`, true);
-  xhr.send();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      const data = JSON.parse(xhr.responseText);
-      console.log(data);
-      const{status}=data;
-      if(status){
-        setList();
-      }
-    }
-  }
-}
-
-
-const oDelAll = document.querySelector('#deleteAll') ;
-       
-        oDelAll.onclick = function() {
-          console.log(1);
-            // 判断单选
-            for(let i = 0 ; i < oOnes.length ; i++) {
-                if(oOnes[i].checked) {
-                    const id = oOnes[i].parentNode.parentNode.getAttribute('data-id');
-                    // 删除成功
-                    console.log(id);
-                    oOnes[i].parentNode.parentNode.remove() ;
-
-
-                    // 判断是否全部删除了  oOnes.length  来判断
-
-
-                    ajax({
-                        type : 'get' , 
-                        data : {
-                            id
-                        } ,
-                        url : '../php/delete.php' ,
-                        success : res => {
-                            console.log(res);
-                            const  {status , msg} = res ;
-                            if(status) {
-                               console.log('删除成功');
-                                // DOM会有卡顿   先直接删除
-                                //    oOnes[i].parentNode.parentNode.remove() ;
-                            } else {
-                                alert('服务器错误') ;
-                            }
-                        }
-                    })
-                }
-            }
-        }
-
-
-        function add(i,that) {
-          let num=countIpt.value;
-       
-            num++;
-            countIpt.value=num;
-            const buyNum=num;
-            console.log(buyNum);
-
-          countAdd({i,buyNum}).then(
-            res=>{
-              const{status,msg}=res;
-              console.log(status);
-            }
-          )
-
-        }
-</script>
+      <div class="catbox">
+        <table id="cartTable">
+          <thead>
+            <tr>
+              <th>
+                <label>
+                  <input
+                    class="check-all check"
+                    type="checkbox"
+                  />&nbsp;&nbsp;全选</label
+                >
+              </th>
+              <th>商品</th>
+              <th>单价</th>
+              <th>数量</th>
+              <th>小计</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+     
+          </tbody>
+        </table>
+        <div class="foot" id="foot">
+          <a class="fl" id="deleteAll" href="javascript:;">删除</a>
+          <div class="fr closing" onclick="getTotal();">结 算</div>
+          <input type="hidden" id="cartTotalPrice" />
+          <div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+          <div class="fr selected" id="selected">
+            已选商品<span id="selectedTotal">0</span>件<span class="arrow up"
+              >︽</span
+            ><span class="arrow down">︾</span>
+          </div>
+          <div class="selected-view">
+            <div id="selectedViewList" class="clearfix">
+              <div><img src="../images/1.jpg" /><span>取消选择</span></div>
+            </div>
+            <span class="arrow">◆<span>◆</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+	const oLoginBar=document.querySelector('.loginBar');
+		const user_lgc=getCookie('lgc');
+	let html='';
+	if(user_lgc){
+		html=`
+		<span>欢迎您,${user_lgc}&emsp;</span>
+		`
+	}else{
+		html=`
+		
+		<a href="./log.html">你好请登录</a>&emsp;<a
+              href="./resg.html"
+              style="color: red;"
+              >免费注册</a
+            >`
+	}
+	oLoginBar.innerHTML=html;
+  </script>
+  <script src="../js/shoppingcar.js"></script>
 </html>

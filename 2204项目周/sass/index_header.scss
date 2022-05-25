@@ -97,19 +97,44 @@ html {
       padding-top: 40px;
       display: flex;
       justify-content: end;
+
+      margin-left: 250px;
+
       //    text-align: end;
 
       input {
         width: 360px;
         height: 40px;
-
         border: none;
       }
-
+      .search_btn{
+        width: 50px;
+        height: 40px;
+        background-color: red;
+        border: none;
+        .iconfont{
+          color: white;
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+      .cart{
+        width: 150px;
+        height: 40px;
+        background-color: white;
+        color: red;
+        display: flex;
+        justify-content: center;
+        margin-left: 100px;
+        span{
+          line-height: 40px;
+        }
+      }
       .iconBox {
         width: 51px;
         height: 40px;
         text-align: center;
+        
 
         color: #fff;
         background-color: red;

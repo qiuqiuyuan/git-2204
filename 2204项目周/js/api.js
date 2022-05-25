@@ -24,5 +24,4 @@ const page=data=>request('get', '../php/page.php', data);
 const showShoppingCar=data=>request('get', '../php/showShoppingCar.php', data);
 const update=data=>request('get', '../php/update.php', data);
 const addToShoppingCar=data=>request('post', '../php/addToShoppingCar.php', data);
-const countAdd=data=>request('post','../php/count+.php',data);
-const countReduce=data=>request('post','../php/count-.php',data);
+const count=data=>request('post','../php/count.php',data);

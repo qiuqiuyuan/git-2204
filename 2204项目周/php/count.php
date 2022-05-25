@@ -4,8 +4,9 @@
 
     // 接受前端数据
 
-    $id=$_POST['i'];
+    $id=$_POST['id'];
     $buyNum = $_POST['buyNum'] ;
+    $subTotalPrice = $_POST['subTotalPrice'] ;
     // $goodsName = $_POST['goodsName'] ;
     // $goodsImg = $_POST['goodsImg'] ;
     // $goodsPrice = $_POST['goodsPrice'] ;
@@ -19,8 +20,8 @@
     $res = [] ;
 
     // 判断是否接受成功 
-    if($buyNum&&$id) {
-            $sql = "update shoppingcar set buyNum = buyNum + $buyNum where cartId = '$id'";
+    if($buyNum&&$id&&$subTotalPrice) {
+            $sql = "update shoppingcar set buyNum =$buyNum,subTotalPrice=$subTotalPrice where cartId = '$id'";
             $rows = mysqli_query($conn , $sql) ;
             if($rows > 0) {
                 $res['status'] = true ;

@@ -17,7 +17,7 @@
         <div class="location">湖北</div>
 
         <ul class="nav">
-          <li>
+          <li class="loginBar">
             <a href="./log.html">你好请登录</a>&emsp;<a
               href="./resg.html"
               style="color: red"
@@ -1406,7 +1406,23 @@
   </body>
 
   <script>
- 
+ 	const oLoginBar=document.querySelector('.loginBar');
+		const user_lgc=getCookie('lgc');
+	let html='';
+	if(user_lgc){
+		html=`
+		<span>欢迎您,${user_lgc}&emsp;</span>
+		`
+	}else{
+		html=`
+		
+		<a href="./log.html">你好请登录</a>&emsp;<a
+              href="./resg.html"
+              style="color: red;"
+              >免费注册</a
+            >`
+	}
+	oLoginBar.innerHTML=html;
   </script>
   <script src="../js/goodsListSearch.js"></script>
   

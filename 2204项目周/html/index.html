@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="../css/index_header.css" />
     <link rel="stylesheet" href="../css/index_container.css" />
     <link rel="stylesheet" href="../css/index_footer.css" />
+	<script src="../js/cookie.js"></script>
 	
     <link
       rel="stylesheet"
-      href="https://at.alicdn.com/t/font_3033706_h8elmltw4n8.css"
+      href="https://at.alicdn.com/t/font_3033706_3k8232jpop2.css"
     />
 	
   </head>
@@ -26,12 +27,9 @@
         <div class="location">湖北</div>
 
         <ul class="nav">
-          <li>
-            <a href="./log.html">你好请登录</a>&emsp;<a
-              href="./resg.html"
-              style="color: red;"
-              >免费注册</a
-            >
+          <li class="loginBar">
+			 
+           
           </li>
           <li>
             <a href="javascript:;">我的订单</a>
@@ -111,6 +109,12 @@
           <button class="search_btn">
 			<span  class="iconfont icon-sousuo"></span>
 		  </button>
+		  <div class="cart">
+			
+			 <!-- <span>购物车</span> -->
+			  <span class="iconfont icon-gouwuche">我的购物车</span>
+		
+		  </div>
            
           
         </div>
@@ -1438,7 +1442,27 @@
     </div>
   </body>
 <script>
-
+	const oCart=document.querySelector('.cart');
+	oCart.onclick=function(){
+		location.href='./shoppingCar.html';
+	}
+	const oLoginBar=document.querySelector('.loginBar');
+		const user_lgc=getCookie('lgc');
+	let html='';
+	if(user_lgc){
+		html=`
+		<span>欢迎您,${user_lgc}&emsp;</span>
+		`
+	}else{
+		html=`
+		
+		<a href="./log.html">你好请登录</a>&emsp;<a
+              href="./resg.html"
+              style="color: red;"
+              >免费注册</a
+            >`
+	}
+	oLoginBar.innerHTML=html;
 </script>
 <script src="../js/lunbotu.js"></script>
 <script src="../js/counttime.js"></script>

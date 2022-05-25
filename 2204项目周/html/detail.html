@@ -20,12 +20,8 @@
         <div class="location">湖北</div>
 
         <ul class="nav">
-          <li>
-            <a href="./log.html">你好请登录</a>&emsp;<a
-              href="./resg.html"
-              style="color: red"
-              >免费注册</a
-            >
+          <li class="loginBar">
+          
           </li>
           <li>
             <a href="javascript:;">我的订单</a>
@@ -867,5 +863,23 @@
 				
 			}
 		}
+
+    const oLoginBar=document.querySelector('.loginBar');
+		const user_lgc=getCookie('lgc');
+	let html='';
+	if(user_lgc){
+		html=`
+		<span>欢迎您,${user_lgc}&emsp;</span>
+		`
+	}else{
+		html=`
+		
+		<a href="./log.html">你好请登录</a>&emsp;<a
+              href="./resg.html"
+              style="color: red;"
+              >免费注册</a
+            >`
+	}
+	oLoginBar.innerHTML=html;
   </script>
 </html>

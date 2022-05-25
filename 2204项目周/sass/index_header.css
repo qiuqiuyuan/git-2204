@@ -7,6 +7,7 @@ html {
   height: 31px;
   background-color: #dfdfdf;
 }
+
 .header .w {
   width: 1200px;
   height: 100%;
@@ -16,18 +17,22 @@ html {
   justify-content: space-between;
   align-items: center;
 }
+
 .header .w .nav {
   display: flex;
   height: 100%;
   line-height: 20px;
   float: left;
 }
+
 .header .w .nav > li:first-child > a:first-child {
   border-right: none;
 }
+
 .header .w .nav > li:last-child > a:last-child {
   border-right: none;
 }
+
 .header .w .nav > li {
   line-height: 30px;
   margin-left: 2px;
@@ -36,6 +41,7 @@ html {
   top: 0;
   left: 0;
 }
+
 .header .w .nav > li > a {
   color: #969494;
   box-sizing: border-box;
@@ -44,9 +50,11 @@ html {
   padding-right: 5px;
   z-index: 1;
 }
+
 .header .w .nav > li > a:hover {
   color: red;
 }
+
 .header .w .nav > li > .subNav {
   text-indent: 20px;
   line-height: 30px;
@@ -60,18 +68,22 @@ html {
   display: none;
   z-index: 1;
 }
+
 .header .w .nav > li:hover {
   background-color: #f9f9f9;
 }
+
 .header .w .nav > li:hover .subNav {
   display: block;
 }
+
 .header .searchBar {
   width: 1200px;
   height: 140px;
   margin: 0 auto;
   position: relative;
 }
+
 .header .searchBar .log {
   position: absolute;
   left: 0;
@@ -80,6 +92,7 @@ html {
   z-index: 2;
   background-image: url(https://misc.360buyimg.com/channel/gangao/2.0.0/global/1.0.0/widget/header/i/logo2.png);
 }
+
 .header .searchBar .searchBarBox {
   width: 700px;
   height: 40px;
@@ -88,22 +101,26 @@ html {
   justify-content: end;
   margin-left: 250px;
 }
+
 .header .searchBar .searchBarBox input {
   width: 360px;
   height: 40px;
   border: none;
 }
+
 .header .searchBar .searchBarBox .search_btn {
   width: 50px;
   height: 40px;
   background-color: red;
   border: none;
 }
+
 .header .searchBar .searchBarBox .search_btn .iconfont {
   color: white;
   font-size: 24px;
   font-weight: 700;
 }
+
 .header .searchBar .searchBarBox .cart {
   width: 150px;
   height: 40px;
@@ -113,9 +130,11 @@ html {
   justify-content: center;
   margin-left: 100px;
 }
+
 .header .searchBar .searchBarBox .cart span {
   line-height: 40px;
 }
+
 .header .searchBar .searchBarBox .iconBox {
   width: 51px;
   height: 40px;
@@ -123,11 +142,13 @@ html {
   color: #fff;
   background-color: red;
 }
+
 .header .searchBar .searchBarBox .iconBox a {
   font-size: 36px;
   line-height: 15px;
   vertical-align: bottom;
 }
+
 .header .searchBar .hot_word {
   width: 520px;
   height: 20px;
@@ -136,18 +157,19 @@ html {
   display: flex;
   justify-content: end;
 }
+
 .header .searchBar .hot_word > a {
   color: #969494;
   padding-right: 15px;
 }
+
 .header .searchBar .key_word {
   width: 550px;
   height: 20px;
   margin-top: 5px;
   text-align: end;
 }
+
 .header .searchBar .key_word > a {
   padding-left: 10px;
 }
-
-/*# sourceMappingURL=index_header.css.map */

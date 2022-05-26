@@ -32,7 +32,7 @@ html{
                     margin-left: 5px;
                 }
                 >li{
-                    position: relative;
+                    // position: relative;
                     border-right: 1px solid gray;
                     // margin-left: 5px 
                     padding-right: 5px ;
@@ -44,27 +44,41 @@ html{
                     .res_btn{
                         color: red;
                     }
-                    .subNav{
-                        width: 200px;
-                        height: 30px;
-                        position:absolute;
-                        top:31px;
-                        left: 0;
-
-                        display: none;
-
-                        >li{
-                            margin-top: 5px;
-                            width: 70px;
+                    >.subNav {
+                        text-indent: 20px;
+                        line-height: 30px;
+                        font-size: 14px;
+                        width: 100%;
+                        background: #f9f9f9;
+                        border: 1px solid grey;
+                        position: absolute;
+                        left: 560px;
+                        top: 30px;
+                        z-index: 1;
+                        width: 660px;
+                        height: 140px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        visibility: hidden;
+                        overflow: hidden;
+                        >.top{
+                          width: 300px;
+                          height: 100%;
+                          // display: flex;
                           
-
                         }
-                    }
+                        >.bottom{
+                          // display: flex;
+                          width: 300px;
+                          height: 100%;
+                         
+                        }
+                      }
                   
                 }
                 :hover{
                     .subNav{
-                        display: block;
+                        visibility: visible;
                     }
                 }
             }
@@ -86,7 +100,7 @@ html{
             width: 230px;
             height: 140px;
             z-index: 2;
-            background-image: url(	https://misc.360buyimg.com/channel/gangao/2.0.0/global/1.0.0/widget/header/i/logo2.png);
+            // background-image: url(	https://misc.360buyimg.com/channel/gangao/2.0.0/global/1.0.0/widget/header/i/logo2.png);
         
         }
         .searchBarBox{

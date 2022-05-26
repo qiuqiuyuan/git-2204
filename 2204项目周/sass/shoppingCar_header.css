@@ -7,6 +7,7 @@ html {
   height: 31px;
   background-color: #dfdfdf;
 }
+
 .header .w {
   width: 1200px;
   height: 100%;
@@ -17,24 +18,30 @@ html {
   align-items: center;
   position: relative;
 }
+
 .header .w .nav {
   display: flex;
   line-height: 12px;
 }
+
 .header .w .nav > a {
   margin-left: 5px;
 }
+
 .header .w .nav > li {
   border-right: 1px solid gray;
   padding-right: 5px;
   padding-left: 5px;
 }
+
 .header .w .nav > li > a .active {
   color: red;
 }
+
 .header .w .nav > li .res_btn {
   color: red;
 }
+
 .header .w .nav > li > .subNav {
   text-indent: 20px;
   line-height: 30px;
@@ -53,17 +60,21 @@ html {
   visibility: hidden;
   overflow: hidden;
 }
+
 .header .w .nav > li > .subNav > .top {
   width: 300px;
   height: 100%;
 }
+
 .header .w .nav > li > .subNav > .bottom {
   width: 300px;
   height: 100%;
 }
+
 .header .w .nav :hover .subNav {
   visibility: visible;
 }
+
 .header .searchBar {
   width: 1200px;
   height: 140px;
@@ -72,6 +83,7 @@ html {
   display: flex;
   justify-content: space-between;
 }
+
 .header .searchBar .log {
   position: absolute;
   left: 0;
@@ -79,6 +91,7 @@ html {
   height: 140px;
   z-index: 2;
 }
+
 .header .searchBar .searchBarBox {
   width: 1200px;
   height: 40px;
@@ -86,6 +99,7 @@ html {
   display: flex;
   justify-content: end;
 }
+
 .header .searchBar .searchBarBox input {
   width: 330px;
   height: 30px;
@@ -93,6 +107,7 @@ html {
   box-sizing: border-box;
   border: 3px solid red;
 }
+
 .header .searchBar .searchBarBox .iconBox {
   width: 51px;
   height: 30px;
@@ -101,8 +116,7 @@ html {
   color: #fff;
   background-color: red;
 }
+
 .header .searchBar .searchBarBox .iconBox a {
   font-size: 16px;
 }
-
-/*# sourceMappingURL=shoppingCar_header.css.map */

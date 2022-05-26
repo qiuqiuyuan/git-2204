@@ -267,12 +267,12 @@
   width: 400px;
   height: 500px;
   display: flex;
-  justify-content: space-between;
 }
 
 .container .imageBar .left .left1 {
   width: 400px;
   height: 400px;
+  background-color: gray;
   position: relative;
 }
 
@@ -282,16 +282,17 @@
 }
 
 .container .imageBar .left .left1 .mask {
-  width: 100px;
-  height: 100px;
-  background-color: black;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(200, 0, 0, 0.5);
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   display: none;
 }
 
 .container .imageBar .left .smImg {
+  width: 400px;
   display: flex;
   overflow: hidden;
 }
@@ -308,18 +309,18 @@
   height: 80px;
 }
 
-.container .imageBar .right {
+.container .imageBar .left > .right {
   width: 400px;
   height: 400px;
   background-color: gray;
   overflow: hidden;
-  display: none;
   position: absolute;
-  top: 309px;
-  left: 810px;
+  top: 310px;
+  left: 800px;
+  display: none;
 }
 
-.container .imageBar .right > img {
+.container .imageBar .left > .right > img {
   width: 800px;
   height: 800px;
   position: absolute;
@@ -432,4 +433,10 @@
   color: white;
   font-weight: 700;
   margin-left: 40px;
+}
+
+.footer_detail {
+  height: 100%;
+  width: 1100px;
+  margin: 0 auto;
 }

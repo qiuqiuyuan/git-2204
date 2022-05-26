@@ -262,34 +262,38 @@
 .container {
   width: 1100px;
   margin: 0 auto;
-  display: flex;
+ display: flex;
+
   .imageBar {
-   
+  //  position: relative;
     width: 400px;
     height: 500px;
     display: flex;
-    justify-content: space-between;
    
     .left{
       .left1{
         width: 400px;
         height: 400px;
+        background-color: gray;
         position: relative;
         >img {
           width: 400px;
           height: 400px;
         }
         .mask{
-          width: 100px;
-          height: 100px;
-          background-color: black;
-          position: absolute;
-          top: 0;
-          left: 0;
-          display: none;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(200, 0, 0, 0.5);
+
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      display: none;
         }
       }
       .smImg {
+        width: 400px;
         display: flex;
         overflow: hidden;
         li {
@@ -304,32 +308,34 @@
        }
       }
   
-    }
-    
-    .right{
-      width: 400px;
-      height: 400px;
-      background-color: gray;
-      overflow: hidden;
-
-      display: none;
-      position: absolute;
-      top: 309px;
-      left: 810px;
-
-      // display: none;
-      >img{
-        width: 800px;
-        height: 800px;
+      >.right{
+      
+        width: 400px;
+        height: 400px;
+        background-color: gray;
+        overflow: hidden;
+  
+        
         position: absolute;
-        left: 0;
-        top: 0;
+        top: 310px;
+        left: 800px;
+  
+        display: none;
+        >img{
+          width: 800px;
+          height: 800px;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
       }
     }
+   
   }
 
   .detailsR {
     width: 680px;
+
 
     .name {
       width: 100%;
@@ -422,4 +428,10 @@
     }
   }
 
+}
+.footer_detail{
+  height: 100%;
+  width: 1100px;
+
+  margin: 0 auto;
 }

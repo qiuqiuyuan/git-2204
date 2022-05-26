@@ -1411,7 +1411,7 @@
 	let html='';
 	if(user_lgc){
 		html=`
-		<span>欢迎您,${user_lgc}&emsp;</span>
+		<span>欢迎您,${user_lgc}&emsp;<a class='loginOut'>退出</a></span>
 		`
 	}else{
 		html=`
@@ -1423,6 +1423,11 @@
             >`
 	}
 	oLoginBar.innerHTML=html;
+  const  oLoginOut=document.querySelector('.loginOut');
+    oLoginOut.onclick=function(){
+      deleteCookie('lgc');
+     location.href='goodslist.html';
+    }
   </script>
   <script src="../js/goodsListSearch.js"></script>
   

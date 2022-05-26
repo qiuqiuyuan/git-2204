@@ -83,7 +83,7 @@
         </ul>
       </div>
       <div class="searchBar">
-        <div class="log"></div>
+        <div class="log"><a href="./index.html"><img src="	https://misc.360buyimg.com/channel/gangao/2.0.0/global/1.0.0/widget/header/i/logo2.png" alt=""></a></div>
         <div class="searchBarBox">
           <input type="text" />
           <div class="iconBox">
@@ -140,7 +140,7 @@
 	let html='';
 	if(user_lgc){
 		html=`
-		<span>欢迎您,${user_lgc}&emsp;</span>
+		<span>欢迎您,${user_lgc}&emsp;<a class='loginOut'>退出</a></span>
 		`
 	}else{
 		html=`
@@ -152,6 +152,11 @@
             >`
 	}
 	oLoginBar.innerHTML=html;
+  const  oLoginOut=document.querySelector('.loginOut');
+    oLoginOut.onclick=function(){
+      deleteCookie('lgc');
+     location.href='shoppingCar.html'
+    }
   </script>
   <script src="../js/shoppingcar.js"></script>
 </html>

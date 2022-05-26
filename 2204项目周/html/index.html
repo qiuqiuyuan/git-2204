@@ -26,7 +26,11 @@
         <div class="location">湖北</div>
 
         <ul class="nav">
-          <li class="loginBar"></li>
+          <li class="loginBar">
+
+
+
+          </li>
           <li>
             <a href="javascript:;">我的订单</a>
           </li>
@@ -1837,7 +1841,9 @@
     let html1 = "";
     if (user_lgc) {
       html = `
-		<span>欢迎您,${user_lgc}&emsp;</span>
+		<span>欢迎您,${user_lgc}&emsp; <a class="loginOut">退出</a></span>
+
+    
 		`;
       html1 = `
 		<div class="carousel_log_rl_img">
@@ -1881,6 +1887,12 @@
     }
     oLoginBar.innerHTML = html;
     carouselLogRl.innerHTML = html1;
+
+    const  oLoginOut=document.querySelector('.loginOut');
+    oLoginOut.onclick=function(){
+      deleteCookie('lgc');
+     location.href='index.html';
+    }
   </script>
   <script src="../js/lunbotu.js"></script>
   <script src="../js/counttime.js"></script>

@@ -1,32 +1,27 @@
-const oRecommendImg=document.querySelector('.recommend_img');
+const oRecommendImg = document.querySelector('.recommend_img');
 setList2();
-function setList2(){
-	ajax({
-		type:'get',
-		url:'../php/goodslist.php',
-		success:res=>{
-			const {status,list}=res;
-			
-			if(status){
-				let html1='';
-				list.forEach(v => {
-					const{goodsId, goodsName, goodsPrice, goodsImg, goodsDetail}=v;
-					html1+=`
-					
-					<li>
-                <a href="./detail.html?id=${goodsId}" ><img
-                        src="${goodsImg}"
-                        alt=""></a>
-                <p class="title1">${goodsName}</p>
-                <p class="price1">
-					${goodsPrice}
-                </p>
-            </li>
-					
-					`
-					oRecommendImg.innerHTML=html1;
-				});
-			}
-		}
-	})
+async function setList2() {
+
+    await goodsList().then(res => {
+        const { status, list } = res;
+        if (status) {
+            let html = '';
+            console.log(list);
+            list.forEach(v => {
+                const { goodsId, goodsName, goodsPrice, goodsImg } = v;
+                html += `
+                <li>
+            <a href="./detail.html?id=${goodsId}" ><img
+                    src="${goodsImg}"
+                    alt=""></a>
+            <p class="title">${goodsName}</p>
+            <p class="price">
+                ${goodsPrice}
+            </p>
+        </li> 
+                `
+                oRecommendImg.innerHTML = html;
+            });
+        }
+    })
 }

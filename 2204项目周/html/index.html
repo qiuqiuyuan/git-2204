@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script src="../js/ajax.js"></script>
+    
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/index_header.css" />
     <link rel="stylesheet" href="../css/index_container.css" />
     <link rel="stylesheet" href="../css/index_footer.css" />
-    <script src="../js/cookie.js"></script>
-
     <link
       rel="stylesheet"
       href="https://at.alicdn.com/t/font_3033706_3k8232jpop2.css"
     />
+    <script src="../js/cookie.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/api.js"></script>
+    
+
   </head>
 
   <body>
@@ -1430,7 +1432,7 @@
         <!-- <li><img src="" alt=""></li> -->
       </div>
 
-      <div class="footer">
+      <!-- <div class="footer">
         <div>
           <div class="custom-code">
             <link
@@ -1826,7 +1828,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </body>
   <script>
@@ -1888,16 +1890,17 @@
     oLoginBar.innerHTML = html;
     carouselLogRl.innerHTML = html1;
 
-    const  oLoginOut=document.querySelector('.loginOut');
+    let  oLoginOut=document.querySelector('.loginOut');
     oLoginOut.onclick=function(){
       deleteCookie('lgc');
      location.href='index.html';
     }
   </script>
-  <script src="../js/lunbotu.js"></script>
+  
+  <script src="../js/index_search.js"></script>
+  <!-- <script src="../js/lunbotu.js"></script> -->
   <script src="../js/counttime.js"></script>
   <script src="../js/randomPhoto.js"></script>
   <script src="../js/recommend.js"></script>
-  <script src="../js/index_search.js"></script>
-  <!-- <script src="../js/index.js"></script> -->
+
 </html>

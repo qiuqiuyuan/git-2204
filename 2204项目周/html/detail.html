@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/ui-base.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <script src="../js/ajax.js"></script>
+    <script src="../js/api.js"></script>
   </head>
 
   <body>
@@ -347,32 +348,27 @@
           let smallImageSrc = smallPicList.split(",");
           let bigImageSrc = bigPicList.split(",");
           let footerDetail = document.querySelector(".footer_detail");
-           countIpt = document.querySelector(".count_input");
-            oCartAdd=document.querySelector('.cartAdd');
-            oCartReduce=document.querySelector('.cartReduce');
+          countIpt = document.querySelector(".count_input");
+          oCartAdd = document.querySelector(".cartAdd");
+          oCartReduce = document.querySelector(".cartReduce");
 
           smallImage.src = bigImageSrc[0];
 
-          oCartAdd.onclick=function(){
-            let  num =countIpt.value;
-              num++;
-              countIpt.value=num;
-          }
-          oCartReduce.onclick=function(){
-            let  num =countIpt.value;
+          oCartAdd.onclick = function () {
+            let num = countIpt.value;
+            num++;
+            countIpt.value = num;
+          };
+          oCartReduce.onclick = function () {
+            let num = countIpt.value;
 
-            if(num<=1){
-    alert("亲,不能在少了!")
-    return false;
-  }
-              num--;
-              countIpt.value=num;
-          }
-
-
-
-
-
+            if (num <= 1) {
+              alert("亲,不能在少了!");
+              return false;
+            }
+            num--;
+            countIpt.value = num;
+          };
 
           let htmlDe = "";
           htmlDe = `${goodsDetail}`;
@@ -434,33 +430,21 @@
       });
     }
 
-
-
-    function addToCart() {
-      
+    async function addToCart() {
       const user = getCookie("lgc");
-
-      console.log(user);
-
       if (user) {
-        ajax({
-          type: "post",
-          url: "../php/addToShoppingCar.php",
-          data: {
-            user: user,
-            goodsId: id,
-            buyNum: countIpt.value,
-          },
-          success: (res) => {
-            alert(res.msg);
-          },
+        await addToShoppingCar({
+          user: user,
+          goodsId: id,
+          buyNum: countIpt.value,
+        }).then((res) => {
+          alert(res.msg);
         });
       } else {
         const url = location;
         location.href = "./log.html?locationURL" + url;
       }
     }
-
     const oLoginBar = document.querySelector(".loginBar");
     const user_lgc = getCookie("lgc");
     let html11 = "";

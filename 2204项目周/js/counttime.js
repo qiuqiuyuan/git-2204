@@ -29,6 +29,3 @@ showtime();
         return num<10?"0"+num:num
     }
     }
-    box.onclick=function(){
-        clearInterval(time);
-    }

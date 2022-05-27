@@ -10,6 +10,12 @@ const oEmail = document.querySelector('#email');
 const oEmailSpan = document.querySelector('#email_span');
 const oBtn = document.querySelector('#btn');
 
+
+let user;
+let pwd;
+let email;
+let phone;
+
 let isUserOk=false;
 let isPwdOk=false;
 let isPhoneOk=false;
@@ -18,36 +24,30 @@ let isEmailOk=false;
 let isRePwdOk=false;
 
 
-oUser.onblur = function () {
-    const user = oUser.value.trim();
-
-    const reg = /^[A-Za-z_$][\w$]{5,11}$/;
+oUser.onblur =  async function () {
+   user = oUser.value.trim();
+     const reg = /^[A-Za-z_$][\w$]{5,11}$/;
 
     if (reg.test(user)) {
-        ajax({
-            type: 'get',
-            url: '../php/isUserExist.php',
-            data: {
-                user: user,
-            },
-            success: res => {
-                const { status, msg } = res;
-                if (status) {
-                    isUserOk=true;
-                    oUserSpan.textContent = msg;
-                } else {
-                    isUserOk=false;
-                    oUserSpan.textContent = msg;
-                }
-            }
-        })
+       await isUserExist({user}).then((res)=>{
+
+        const { status, msg } = res;
+        if (status) {
+            isUserOk=true;
+            oUserSpan.textContent = msg;
+        } else {
+            isUserOk=false;
+            oUserSpan.textContent = msg;
+       }
+    });
     } else {
         oUserSpan.textContent = '用户名不能以数字开头且长度在6-12之间';
     }
 }
 
-oPwd.onblur = function () {
-    const pwd = oPwd.value.trim();
+// }
+oPwd.onblur =   function () {
+     pwd = oPwd.value.trim();
     const reg = /^[\w$]{6,12}$/;
 
     if (reg.test(pwd)) {
@@ -66,7 +66,7 @@ oPwd.onblur = function () {
 }
 
 oRePwd.onblur = function() {
-    const rePwd = oRePwd.value.trim();
+    const  rePwd = oRePwd.value.trim();
     const pwd = oPwd.value.trim();
     if (rePwd === pwd) {
         isRePwdOk = true;
@@ -78,18 +78,13 @@ oRePwd.onblur = function() {
     }
 };
 
-oPhone.onblur=function(){
-    const phone=oPhone.value.trim();
+oPhone.onblur= async function(){
+     phone=oPhone.value.trim();
     const reg = /^1[3-9]\d{9}$/;
 
     if(reg.test(phone)){
-        ajax({
-        type: 'get',
-        url:'../php/isPhoneExist.php',
-        data:{
-            phone:phone
-        },
-        success:res=>{
+        await isPhoneExist({phone}).then(res=>{
+
             const {status,msg}=res;
             if(status){
                 isPhoneOk = true;
@@ -97,47 +92,34 @@ oPhone.onblur=function(){
                 
             }else{
                 isPhoneOk=false;
-				oPhoneSpan.textContent = msg;
+                oPhoneSpan.textContent = msg;
             }
-        }
-        
-        
-        
-        
         })
     }else{
         oPhoneSpan.textContent = "请输入正确的手机号";
     }
 }
 
-oEmail.onblur = function() {
+oEmail.onblur =async function() {
 			
   
     const email = oEmail.value.trim();
     const reg = /^\w+@\w+\.(com|cn|edu)$/;
 
     if(reg.test(email)){
-        ajax({
-            type:'get',
-            url:'../php/isEmailExist.php',
-            data:{
-                email:email,
-            },
-            success:res=>{
-                const {status,msg}=res;
-                if (status) {
-                    isEmailOk=true;
-                    oEmailSpan.textContent = msg;
-                    
-                } else {
-                    isEmailOk=false;
-                    oEmailSpan.textContent = msg;
-                   
-                    
-                }
-            }
-        })
-
+     await isEmailExist({email}).then(res=>{
+        const {status,msg}=res;
+        if (status) {
+            isEmailOk=true;
+            oEmailSpan.textContent = msg;
+            
+        } else {
+            isEmailOk=false;
+            oEmailSpan.textContent = msg;
+           
+            
+        }
+     })
 
     }else {
         oEmailSpan.textContent = "请输入正确的邮箱";
@@ -146,36 +128,23 @@ oEmail.onblur = function() {
 
 }
 let isRegOk=false;
-oBtn.addEventListener('click',function(){
+oBtn.addEventListener('click', async function(){
     // dragJudge.style.display='block';
-            const user = oUser.value.trim();
-			// const nickName = oNickName.value.trim();
-			const pwd = oPwd.value.trim();
-			const phone = oPhone.value.trim();
-			const email = oEmail.value.trim();
-			if ( isPwdOk & isUserOk &isPhoneOk&isEmailOk) {
+             user = oUser.value.trim();
+			//  nickName = oNickName.value.trim();
+			 pwd = oPwd.value.trim();
+			 phone = oPhone.value.trim();
+			 email = oEmail.value.trim();
+			if ( isPwdOk && isUserOk &&isPhoneOk&&isEmailOk) {
 				if(isRegOk) return false;
 				isRegOk=true;
-                ajax({
-                    type:'post',
-                    url:'../php/reg.php',
-                    data:{
-                        user,
-                        pwd,
-                        phone,
-                        email,
-
-                    },
-                    success:res=>{
-                        const {status,msg}=res;
-                        if(status){
-                            location.href='../html/log.html'
-
-
-                        }
-                    }
-                })
-
+               await reg({user,pwd,phone,email}).then(res=>{
+                const {status}=res;
+                if(status){
+                    location.href='../html/log.html'
+                }
+                
+               })
 
 
 }
@@ -184,6 +153,7 @@ oBtn.addEventListener('click',function(){
 
 
 // 滑动验证
+
 
 
 
